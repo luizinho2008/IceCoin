@@ -1,3 +1,9 @@
+import javafx.fxml.FXML;
+import javafx.scene.layout.Pane;
+
 public class Controller {
-    private String nome;
+
+    @FXML
+    private Pane pano;
+
 }
