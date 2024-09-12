@@ -4,7 +4,7 @@ import java.util.Locale;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashExample {
+public class Blockchain {
 
     public static void main(String[] args) {
 
