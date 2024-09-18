@@ -6,14 +6,15 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "IceCoin_fc4087ae"
+            "projectName": "IceCoin_9e4804f"
         },
         {
             "type": "java",
-            "name": "Launch JavaFX Application",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "hellofx.Main",
-            "vmArgs": "--module-path \"c:\\Users\\Usuario\\Área de Trabalho\\Desktop\\javoso\\JavaFX\\openjfx-22.0.2_windows-x64_bin-sdk\\javafx-sdk-22.0.2\\lib\" --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "Main",
+            "projectName": "IceCoin_fc4087ae",
+            "vmArgs": "--module-path /home/aluno/Downloads/javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
