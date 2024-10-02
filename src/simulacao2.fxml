@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" VBox.vgrow="ALWAYS">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="221.0">
+               <fill>
+                  <LinearGradient cycleMethod="REPEAT" endX="0.14285714285714285" endY="0.3904761904761904" startX="0.48571428571428577" startY="0.4285714285714287">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.22745098173618317" green="0.48235294222831726" blue="0.6196078658103943" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="78.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
+            <Text fill="#1a2d41" layoutX="103.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="91.0" fitWidth="54.0" layoutX="31.0" layoutY="10.0" preserveRatio="true">
+               <image>
+                  <Image url="@img_icecoin.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="496.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTATO">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="223.0" layoutX="249.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="355.0" />
+            <Text fill="#1a2d41" layoutX="284.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicione um valor">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#1a2d41" layoutX="284.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Icecoin">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <TextField layoutX="284.0" layoutY="238.0" prefHeight="24.0" prefWidth="240.0" promptText="I$:" />
+            <TextField layoutX="284.0" layoutY="176.0" prefHeight="24.0" prefWidth="240.0" promptText="R$:" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="271.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Text fill="#1a2d41" layoutX="21.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualmente um Icecoin está valendo 25 reais,contudo o gráfico pode variar ao longo dos dias, portanto fique esperto!Faça suas conversões de Icecoin nesta página para verificar quantos Icecoins você vai querer!" wrappingWidth="152.53125">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#e0eae4" layoutX="277.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faça a sua simulação: ">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
+               <image>
+                  <Image url="@user.jpg" />
+               </image>
+            </ImageView>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
