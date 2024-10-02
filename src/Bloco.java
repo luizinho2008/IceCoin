@@ -1,6 +1,6 @@
-
-// Classe para representar um bloco na blockchain
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.security.MessageDigest;
 import java.util.Date;
 
@@ -10,16 +10,14 @@ class Bloco {
     public String dados;
     public long timestamp;
 
-    // Construtor do Bloco
     public Bloco(String dados, String hashAnterior) {
         this.dados = dados;
         this.hashAnterior = hashAnterior;
         this.timestamp = new Date().getTime();
-        this.hash = calcularHash();
+        this.hash = calcularHash(dados);
     }
 
-    // Método para calcular o hash do bloco
-    public String calcularHash() {
+    public String calcularHash(String dados) {
         String texto = hashAnterior + Long.toString(timestamp) + dados;
         MessageDigest digest;
         try {

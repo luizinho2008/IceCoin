@@ -1,14 +1,41 @@
-// Blockchain minhaBlockchain = new Blockchain();
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Scanner;
+// import java.security.MessageDigest;
+// import java.util.Date;
 
-        // minhaBlockchain.adicionarBloco("Primeiro bloco de dados");
-        // minhaBlockchain.adicionarBloco("Segundo bloco de dados");
-        // minhaBlockchain.adicionarBloco("Terceiro bloco de dados");
-        // minhaBlockchain.adicionarBloco("Quarto bloco de dados");
+// class App {
+//     public static void main(String[] args) {
+//         Blockchain minhaBlockchain = new Blockchain();
 
-        // System.out.println("Blockchain:");
-        // minhaBlockchain.exibirBlockchain();
+//         Scanner scanner = new Scanner(System.in);
 
-        // System.out.println("Integridade da Blockchain: " + minhaBlockchain.verificarIntegridade());
+//         System.out.print("Digite seu nome: ");
+//         String nome = scanner.nextLine();
+
+//         System.out.print("Para quem deseja fazer o pagamento? ");
+//         String destinatario = scanner.nextLine();
+
+//         System.out.print("Quantos reais deseja pagar? ");
+//         double valor = scanner.nextDouble();
+
+//         System.out.println("\nResumo do Pagamento:");
+//         System.out.println("Nome: " + nome);
+//         System.out.println("Destinatário: " + destinatario);
+//         System.out.println("Valor: R$ " + valor);
+
+//         String dados = nome + destinatario + String.valueOf(valor);
+//         minhaBlockchain.adicionarBloco(dados);
+
+//         System.out.println("Blockchain:");
+//         minhaBlockchain.exibirBlockchain();
+//         System.out.println("Integridade da Blockchain: " + minhaBlockchain.verificarIntegridade());
+
+//         scanner.close();
+//     }
+// }
+
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
