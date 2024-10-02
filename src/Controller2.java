@@ -5,9 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class Controller2 {
+
+    @FXML
+    private TextField senhaInput;
+
+    @FXML
+    private TextField usuarioInput;
 
     @FXML
     void redirecionarCadastro(ActionEvent event) {
@@ -32,6 +45,33 @@ public class Controller2 {
             palco.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void logar(ActionEvent event) {
+        if (!Controller3.usuarios.containsKey(usuarioInput.getText())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("As usuário não cadastrado!");
+            alert.showAndWait();
+        }
+        else {
+            if (Controller3.usuarios.get(usuarioInput.getText()).equals(senhaInput.getText())) {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("IceCoin informa");
+                alert.setHeaderText(null);
+                alert.setContentText("Logado no sistema com sucesso!");
+                alert.showAndWait();
+            }
+            else {
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("IceCoin informa");
+                alert.setHeaderText(null);
+                alert.setContentText("Senha incorreta!");
+                alert.showAndWait();
+            }
         }
     }
 }

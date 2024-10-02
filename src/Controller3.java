@@ -8,6 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.util.HashMap;
+import javafx.application.Application;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 public class Controller3 {
 
@@ -49,15 +53,37 @@ public class Controller3 {
     }
 
     @FXML
-    void cadastrar() {
-        if (senhaInput.getText().equals(cSenhaInput.getText()) && 
-            !usuarioInput.getText().isEmpty() && 
-            !usuarios.containsKey(usuarioInput.getText())) {
-            
+    void cadastrar(ActionEvent event) {
+        if (usuarios.containsKey(usuarioInput.getText())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("Esse usuário já tinha sido cadastrado!");
+            alert.showAndWait();
+        }
+        else if (!senhaInput.getText().equals(cSenhaInput.getText())) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("As senhas não condizem!");
+            alert.showAndWait();
+        }
+        else if (usuarioInput.getText().isEmpty() ||
+        senhaInput.getText().isEmpty()) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("Há campos vazios!");
+            alert.showAndWait();
+        }
+        else {
             usuarios.put(usuarioInput.getText(), senhaInput.getText());
-            System.out.println("Cadastrado com sucesso no IceCoin");
-        } else {
-            System.out.println("Falha ao cadastrar usuário no IceCoin");
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("Usuário cadastrado com sucesso!");
+            alert.showAndWait();
+            redirecionarLogin(event);
         }
     }
 }

@@ -92,7 +92,7 @@
                   </Text>
                   <TextField fx:id="senhaInput" layoutX="144.0" layoutY="134.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white; -fx-text-fill: black;">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font></TextField>
                   <Button layoutX="16.0" layoutY="273.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="52.0" prefWidth="186.0" style="-fx-background-color: black;" text="CADASTRAR" textFill="WHITE">
                      <font>
@@ -101,7 +101,7 @@
                   </Button>
                   <TextField fx:id="cSenhaInput" layoutX="144.0" layoutY="191.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white; -fx-text-fill: black;">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font></TextField>
                   <Text layoutX="14.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONFIRMAR SENHA:" wrappingWidth="129.48046875">
                      <font>
