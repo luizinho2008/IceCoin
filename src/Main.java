@@ -47,7 +47,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("telainicial.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("cadastro2.fxml"));
         primaryStage.setTitle("Exchange de Criptmoedas");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

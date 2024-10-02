@@ -9,10 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
+
 
 public class Controller2 {
 
@@ -55,18 +52,6 @@ public class Controller2 {
         }
     }
 
-    @FXML
-    void redirecionarInicio(ActionEvent event) {
-        try {
-            Parent novaTela = FXMLLoader.load(getClass().getResource("telainicial.fxml"));
-            Scene novaCena = new Scene(novaTela);
-            Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            palco.setScene(novaCena);
-            palco.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     void logar(ActionEvent event) {

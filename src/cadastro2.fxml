@@ -46,7 +46,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller3">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" VBox.vgrow="ALWAYS">
          <children>
@@ -85,16 +85,16 @@
                   <Font size="11.0" />
                </font>
             </Text>
-            <Text fill="#e0eae4" layoutX="328.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui uma conta? FAÇA LOGIN">
+            <Text fill="#e0eae4" layoutX="328.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font size="12.0" />
                </font>
             </Text>
             <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="257.0" layoutX="247.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="365.0" />
-            <Button layoutX="381.0" layoutY="256.0" mnemonicParsing="false" style="-fx-background-color: #2c5670;" text="CADASTRAR" textFill="#e0eae4" />
-            <TextField layoutX="414.0" layoutY="107.0" style="-fx-background-color: #1a2d41;" />
-            <PasswordField layoutX="414.0" layoutY="153.0" style="-fx-background-color: #1a2d41;" />
-            <PasswordField layoutX="414.0" layoutY="196.0" style="-fx-background-color: #1a2d41;" />
+            <Button layoutX="381.0" layoutY="256.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: #2c5670;" text="CADASTRAR" textFill="#e0eae4" />
+            <TextField fx:id="usuarioInput" layoutX="414.0" layoutY="107.0" style="-fx-background-color: #1a2d41;" />
+            <PasswordField fx:id="senhaInput" layoutX="414.0" layoutY="153.0" style="-fx-background-color: #1a2d41;" />
+            <PasswordField fx:id="cSenhaInput" layoutX="414.0" layoutY="196.0" style="-fx-background-color: #1a2d41;" />
             <Text fill="#1a2d41" layoutX="263.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DE USUÁRIO: ">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -120,6 +120,7 @@
                   <Image url="@img_icecoin.png" />
                </image>
             </ImageView>
+            <Button layoutX="305.0" layoutY="334.0" mnemonicParsing="false" onAction="#redirecionarLogin" prefHeight="26.0" prefWidth="252.0" style="-fx-background-color: #2c5670;" text="Já possui uma conta? FAÇA LOGIN" textFill="#e0eae4" />
          </children>
     </AnchorPane>
   </children>
