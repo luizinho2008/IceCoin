@@ -22,6 +22,8 @@ public class Controller2 {
     @FXML
     private TextField usuarioInput;
 
+    
+
     @FXML
     void redirecionarCadastro(ActionEvent event) {
         try {
@@ -64,6 +66,8 @@ public class Controller2 {
                 alert.setHeaderText(null);
                 alert.setContentText("Logado no sistema com sucesso!");
                 alert.showAndWait();
+
+                String usuario = usuarioInput.getText();
             }
             else {
                 Alert alert = new Alert(AlertType.INFORMATION);

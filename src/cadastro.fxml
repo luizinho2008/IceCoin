@@ -42,11 +42,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="482.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller3">
+<VBox prefHeight="551.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller3">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: blue;" VBox.vgrow="ALWAYS">
          <children>
-            <Pane prefHeight="489.0" prefWidth="228.0" style="-fx-background-color: gray;">
+            <Pane prefHeight="551.0" prefWidth="228.0" style="-fx-background-color: gray;">
                <children>
                   <Pane prefHeight="60.0" prefWidth="228.0" style="-fx-background-color: black;">
                      <children>
@@ -69,9 +69,9 @@
                   </Text>
                </children>
             </Pane>
-            <Pane layoutX="276.0" layoutY="33.0" prefHeight="345.0" prefWidth="422.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, deepskyblue, blue, white); -fx-background-radius: 20;">
+            <Pane layoutX="257.0" layoutY="65.0" prefHeight="345.0" prefWidth="563.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, deepskyblue, blue, white); -fx-background-radius: 20;">
                <children>
-                  <Text layoutX="115.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO">
+                  <Text layoutX="207.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="usuarioInput" layoutX="144.0" layoutY="79.0" prefHeight="0.0" prefWidth="253.0" scaleShape="false" style="-fx-background-color: white; -fx-text-fill: black;">
+                  <TextField fx:id="usuarioInput" layoutX="160.0" layoutY="79.0" prefHeight="39.0" prefWidth="375.0" scaleShape="false" style="-fx-background-color: white; -fx-text-fill: black;">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></TextField>
@@ -90,16 +90,16 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="senhaInput" layoutX="144.0" layoutY="134.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white; -fx-text-fill: black;">
+                  <TextField fx:id="senhaInput" layoutX="159.0" layoutY="134.0" prefHeight="40.0" prefWidth="375.0" style="-fx-background-color: white; -fx-text-fill: black;">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></TextField>
-                  <Button layoutX="16.0" layoutY="273.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="52.0" prefWidth="186.0" style="-fx-background-color: black;" text="CADASTRAR" textFill="WHITE">
+                  <Button layoutX="34.0" layoutY="264.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="52.0" prefWidth="218.0" style="-fx-background-color: black;" text="CADASTRAR" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="cSenhaInput" layoutX="144.0" layoutY="191.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white; -fx-text-fill: black;">
+                  <TextField fx:id="cSenhaInput" layoutX="158.0" layoutY="191.0" prefHeight="40.0" prefWidth="375.0" style="-fx-background-color: white; -fx-text-fill: black;">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></TextField>
@@ -108,14 +108,14 @@
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="222.0" layoutY="273.0" mnemonicParsing="false" onAction="#redirecionarInicio" prefHeight="52.0" prefWidth="186.0" style="-fx-background-color: black;" text="VOLTAR" textFill="WHITE">
+                  <Button layoutX="302.0" layoutY="264.0" mnemonicParsing="false" onAction="#redirecionarInicio" prefHeight="52.0" prefWidth="218.0" style="-fx-background-color: black;" text="VOLTAR" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
-            <Button layoutX="246.0" layoutY="405.0" mnemonicParsing="false" onAction="#redirecionarLogin" prefHeight="52.0" prefWidth="483.0" style="-fx-background-color: black;" text="Já possui uma conta? FAÇA LOGIN" textFill="WHITE">
+            <Button layoutX="246.0" layoutY="451.0" mnemonicParsing="false" onAction="#redirecionarLogin" prefHeight="52.0" prefWidth="586.0" style="-fx-background-color: black;" text="Já possui uma conta? FAÇA LOGIN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
