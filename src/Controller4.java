@@ -7,7 +7,9 @@ public class Controller4 {
     private Label chamada;
 
     
-
-  
+    @FXML
+    public void receberTexto(String user) {
+        chamada.setText("Olá " + user + "!"); 
+    }
     
 }

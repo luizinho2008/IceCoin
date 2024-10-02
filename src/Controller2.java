@@ -22,7 +22,25 @@ public class Controller2 {
     @FXML
     private TextField usuarioInput;
 
-    
+    @FXML
+    void redirecionarBanco(ActionEvent event, String texto) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("requisicao.fxml"));
+            Parent novaTela = loader.load();
+
+            Controller4 controller = loader.getController();
+
+            controller.receberTexto(texto);
+
+            Scene novaCena = new Scene(novaTela);
+            Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            palco.setScene(novaCena);
+            palco.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void redirecionarCadastro(ActionEvent event) {
@@ -56,10 +74,9 @@ public class Controller2 {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("IceCoin informa");
             alert.setHeaderText(null);
-            alert.setContentText("As usuário não cadastrado!");
+            alert.setContentText("Usuário não cadastrado!");
             alert.showAndWait();
-        }
-        else {
+        } else {
             if (Controller3.usuarios.get(usuarioInput.getText()).equals(senhaInput.getText())) {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("IceCoin informa");
@@ -68,8 +85,8 @@ public class Controller2 {
                 alert.showAndWait();
 
                 String usuario = usuarioInput.getText();
-            }
-            else {
+                redirecionarBanco(event, usuario);
+            } else {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("IceCoin informa");
                 alert.setHeaderText(null);
