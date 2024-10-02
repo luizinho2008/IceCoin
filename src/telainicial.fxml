@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #1a2d41;" VBox.vgrow="ALWAYS">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c5670" height="400.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="78.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="271.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Text fill="#1a2d41" layoutX="96.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#1a2d41" layoutX="25.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O QUE É ICECOIN?">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#1a2d41" layoutX="13.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="194.53125">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="257.0" layoutX="247.0" layoutY="37.0" stroke="BLACK" strokeType="INSIDE" width="365.0" />
+            <Text fill="#1a2d41" layoutX="278.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1 IC$ = R$ 400.000.000">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="91.0" fitWidth="54.0" layoutX="25.0" layoutY="11.0" preserveRatio="true">
+               <image>
+                  <Image url="@img_icecoin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="174.0" fitWidth="316.0" layoutX="272.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../grafico.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="266.0" layoutY="310.0" mnemonicParsing="false" onAction="#redirecionarLogin" prefHeight="29.0" prefWidth="344.0" style="-fx-background-color: dodgerblue; -fx-text-fill: black;" text="Já possui uma conta? FAÇA LOGIN">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="266.0" layoutY="356.0" mnemonicParsing="false" onAction="#redirecionarCadastro" prefHeight="29.0" prefWidth="344.0" style="-fx-background-color: dodgerblue; -fx-text-fill: black;" text="Não possui conta? CADASTRE-SE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
