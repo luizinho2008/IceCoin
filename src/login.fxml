@@ -37,58 +37,74 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="482.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller2">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: #1a2d41;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: blue;" VBox.vgrow="ALWAYS">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2c5670" height="400.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="73.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="281.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="267.0" layoutX="224.0" layoutY="37.0" stroke="BLACK" strokeType="OUTSIDE" width="380.0" />
-            <Text fill="#1a2d41" layoutX="374.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+            <Pane prefHeight="489.0" prefWidth="228.0" style="-fx-background-color: gray;">
+               <children>
+                  <Pane prefHeight="60.0" prefWidth="228.0" style="-fx-background-color: black;">
+                     <children>
+                        <ImageView fitHeight="49.0" fitWidth="46.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img_icecoin.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="82.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text layoutX="10.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="207.85546875">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="289.0" layoutY="71.0" prefHeight="307.0" prefWidth="392.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, deepskyblue, blue, white); -fx-background-radius: 20;">
+               <children>
+                  <Text layoutX="143.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="21.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUÁRIO:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="124.0" layoutY="80.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white;" />
+                  <Text layoutX="21.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SENHA:">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="124.0" layoutY="134.0" prefHeight="40.0" prefWidth="253.0" style="-fx-background-color: white;" />
+                  <Button layoutX="21.0" layoutY="224.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="166.0" style="-fx-background-color: black;" text="ENTRAR" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="202.0" layoutY="224.0" mnemonicParsing="false" onAction="#redirecionarInicio" prefHeight="52.0" prefWidth="166.0" style="-fx-background-color: black;" text="VOLTAR" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Button layoutX="246.0" layoutY="405.0" mnemonicParsing="false" onAction="#redirecionarCadastro" prefHeight="52.0" prefWidth="483.0" style="-fx-background-color: black;" text="Não possui uma conta? CADASTRE-SE" textFill="WHITE">
                <font>
-                  <Font size="25.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
-            </Text>
-            <Text fill="#1a2d41" layoutX="241.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USUÁRIO: ">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField layoutX="368.0" layoutY="146.0" style="-fx-background-color: #1a2d41;" />
-            <Text fill="#1a2d41" layoutX="241.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SENHA:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <TextField layoutX="368.0" layoutY="200.0" style="-fx-background-color: #1a2d41;" />
-            <Button layoutX="374.0" layoutY="245.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #2c5670;" text="ENTRAR" textFill="WHITE" />
-            <Text fill="WHITE" layoutX="290.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não possui uma conta? CADASTRE-SE" />
-            <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Downloads/icecoin.png" />
-               </image>
-            </ImageView>
-            <Text fill="#1a2d41" layoutX="79.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Text>
-            <Text fill="#1a2d41" layoutX="8.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O QUE É ICECOIN?">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Text>
-            <Text fill="#1a2d41" layoutX="7.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="187.0">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Text>
+            </Button>
          </children>
     </AnchorPane>
   </children>
