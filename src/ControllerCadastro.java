@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 
-public class Controller3 {
+public class ControllerCadastro {
 
     static HashMap<String, String> usuarios = new HashMap<>();
 

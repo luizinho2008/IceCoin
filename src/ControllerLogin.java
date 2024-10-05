@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-public class Controller2 {
+public class ControllerLogin {
 
     @FXML
     private TextField senhaInput;
@@ -22,10 +22,10 @@ public class Controller2 {
     @FXML
     void redirecionarBanco(ActionEvent event, String texto) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("requisicao.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("simulacao.fxml"));
             Parent novaTela = loader.load();
 
-            Controller4 controller = loader.getController();
+            ControllerSimulacao controller = loader.getController();
 
             controller.receberTexto(texto);
 
@@ -55,14 +55,14 @@ public class Controller2 {
 
     @FXML
     void logar(ActionEvent event) {
-        if (!Controller3.usuarios.containsKey(usuarioInput.getText())) {
+        if (!ControllerCadastro.usuarios.containsKey(usuarioInput.getText())) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("IceCoin informa");
             alert.setHeaderText(null);
             alert.setContentText("Usuário não cadastrado!");
             alert.showAndWait();
         } else {
-            if (Controller3.usuarios.get(usuarioInput.getText()).equals(senhaInput.getText())) {
+            if (ControllerCadastro.usuarios.get(usuarioInput.getText()).equals(senhaInput.getText())) {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("IceCoin informa");
                 alert.setHeaderText(null);
