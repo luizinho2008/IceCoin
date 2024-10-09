@@ -32,6 +32,8 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -83,17 +85,12 @@
                </font>
             </Text>
             <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="223.0" layoutX="249.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="355.0" />
-            <Text fill="#1a2d41" layoutX="284.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicione um valor">
+            <Text fill="#1a2d41" layoutX="281.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicione um valor">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="284.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Icecoin">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Text>
-            <TextField layoutX="284.0" layoutY="176.0" prefHeight="36.0" prefWidth="294.0" promptText="R$:">
+            <TextField fx:id="valorReal" layoutX="277.0" layoutY="184.0" prefHeight="33.0" prefWidth="274.0" promptText="R$:">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font></TextField>
@@ -113,11 +110,17 @@
                   <Image url="@user.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="284.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor em Icecoin (IC$): ">
+            <Text layoutX="277.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor em Icecoin (IC$): ">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
+            <Button layoutX="374.0" layoutY="285.0" mnemonicParsing="false" onAction="#converter" style="-fx-background-color: #2c5670;" text="CONVERTER" textFill="#e0eae4" />
+            <Label fx:id="converterValor" layoutX="496.0" layoutY="237.0" text="0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
     </AnchorPane>
   </children>
