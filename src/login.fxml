@@ -92,8 +92,8 @@
                </font>
             </Text>
             <TextField fx:id="senhaInput" layoutX="409.0" layoutY="189.0" style="-fx-background-color: #1a2d41;" />
-            <Button layoutX="382.0" layoutY="247.0" mnemonicParsing="false" onAction="#logar" style="-fx-background-color: #2c5670;" text="LOGAR" textFill="#e0eae4" />
-            <Text fill="#1a2d41" layoutX="384.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+            <Button layoutX="396.0" layoutY="247.0" mnemonicParsing="false" onAction="#logar" style="-fx-background-color: #2c5670;" text="LOGAR" textFill="#e0eae4" />
+            <Text fill="#1a2d41" layoutX="398.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
