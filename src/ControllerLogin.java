@@ -27,7 +27,6 @@ public class ControllerLogin {
 
             ControllerSimulacao controller = loader.getController();
 
-            controller.receberTexto(texto);
 
             Scene novaCena = new Scene(novaTela);
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
