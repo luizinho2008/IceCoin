@@ -112,7 +112,7 @@
                </font>
             </Text>
             <Button layoutX="285.0" layoutY="324.0" mnemonicParsing="false" onAction="#redirecionarCadastro" prefHeight="24.0" prefWidth="287.0" style="-fx-background-color: #2c5670;" text="Não possui uma conta? CADASTRE-SE" textFill="#e0eae4" />
-            <PasswordField layoutX="409.0" layoutY="190.0" prefHeight="24.0" prefWidth="171.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;">
+            <PasswordField layoutX="409.0" layoutY="190.0" prefHeight="24.0" prefWidth="171.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white; -fx-font-size: 7px;">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

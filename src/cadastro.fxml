@@ -96,8 +96,6 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></TextField>
-            <PasswordField fx:id="senhaInput" layoutX="414.0" layoutY="153.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;" />
-            <PasswordField fx:id="cSenhaInput" layoutX="414.0" layoutY="196.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;" />
             <Text fill="#1a2d41" layoutX="263.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DE USUÁRIO: ">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -124,6 +122,16 @@
                </image>
             </ImageView>
             <Button layoutX="305.0" layoutY="334.0" mnemonicParsing="false" onAction="#redirecionarLogin" prefHeight="26.0" prefWidth="252.0" style="-fx-background-color: #2c5670;" text="Já possui uma conta? FAÇA LOGIN" textFill="#e0eae4" />
+            <PasswordField fx:id="senhaInput" layoutX="414.0" layoutY="153.0" prefHeight="24.0" prefWidth="171.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white; -fx-font-size: 7px;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="cSenhaInput" layoutX="414.0" layoutY="197.0" prefHeight="24.0" prefWidth="171.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white; -fx-font-size: 7px;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </PasswordField>
          </children>
     </AnchorPane>
   </children>
