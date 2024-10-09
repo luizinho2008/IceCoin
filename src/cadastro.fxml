@@ -92,9 +92,12 @@
             </Text>
             <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="257.0" layoutX="247.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="365.0" />
             <Button layoutX="381.0" layoutY="256.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: #2c5670;" text="CADASTRAR" textFill="#e0eae4" />
-            <TextField fx:id="usuarioInput" layoutX="414.0" layoutY="107.0" style="-fx-background-color: #1a2d41;" />
-            <PasswordField fx:id="senhaInput" layoutX="414.0" layoutY="153.0" style="-fx-background-color: #1a2d41;" />
-            <PasswordField fx:id="cSenhaInput" layoutX="414.0" layoutY="196.0" style="-fx-background-color: #1a2d41;" />
+            <TextField fx:id="usuarioInput" layoutX="414.0" layoutY="107.0" prefHeight="24.0" prefWidth="171.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></TextField>
+            <PasswordField fx:id="senhaInput" layoutX="414.0" layoutY="153.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;" />
+            <PasswordField fx:id="cSenhaInput" layoutX="414.0" layoutY="196.0" style="-fx-background-color: #1a2d41; -fx-text-fill: white;" />
             <Text fill="#1a2d41" layoutX="263.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DE USUÁRIO: ">
                <font>
                   <Font name="System Bold" size="12.0" />
