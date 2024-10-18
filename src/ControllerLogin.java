@@ -11,7 +11,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 public class ControllerLogin {
 
     @FXML
@@ -21,13 +20,12 @@ public class ControllerLogin {
     private TextField usuarioInput;
 
     @FXML
-    void redirecionarBanco(ActionEvent event, String texto) {
+    void redirecionarBanco(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("simulacao.fxml"));
             Parent novaTela = loader.load();
 
             ControllerSimulacao controller = loader.getController();
-
 
             Scene novaCena = new Scene(novaTela);
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -37,7 +35,6 @@ public class ControllerLogin {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     void redirecionarCadastro(ActionEvent event) {
@@ -51,7 +48,6 @@ public class ControllerLogin {
             e.printStackTrace();
         }
     }
-
 
     @FXML
     void logar(ActionEvent event) {
@@ -69,8 +65,7 @@ public class ControllerLogin {
                 alert.setContentText("Logado no sistema com sucesso!");
                 alert.showAndWait();
 
-                String usuario = usuarioInput.getText();
-                redirecionarBanco(event, usuario);
+                redirecionarBanco(event); // Corrigido
             } else {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("IceCoin informa");
