@@ -13,6 +13,9 @@ public class ControllerContato {
     @FXML
     private Text simulacao_menuBar;
 
+    @FXML
+    private Text carteira_menuBar;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -21,6 +24,18 @@ public class ControllerContato {
     void irParaSimulacao(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("simulacao.fxml")); // Carrega a próxima tela da carteira.
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void irParaCarteira(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("carteira.fxml")); // Carrega a próxima tela da carteira.
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

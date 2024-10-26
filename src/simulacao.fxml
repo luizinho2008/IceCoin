@@ -46,7 +46,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerSimulacao">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerSimulacao">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" VBox.vgrow="ALWAYS">
          <children>
@@ -116,12 +116,12 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Text fx:id="contato_menuBar" layoutX="506.0" layoutY="42.0" onMouseClicked="#irParaContato" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTATO">
+            <Text fx:id="contato_menuBar" layoutX="496.0" layoutY="42.0" onMouseClicked="#irParaContato" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTATO">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fx:id="carteira_menuBar" layoutX="431.0" layoutY="42.0" onMouseClicked="#irParaCarteira" strokeType="OUTSIDE" strokeWidth="0.0" text="CARTEIRA">
+            <Text fx:id="carteira_menuBar" layoutX="403.0" layoutY="42.0" onMouseClicked="#irParaCarteira" strokeType="OUTSIDE" strokeWidth="0.0" text="CARTEIRA">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
