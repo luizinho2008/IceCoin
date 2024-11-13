@@ -46,7 +46,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerCadastro">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerCadastro">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" VBox.vgrow="ALWAYS">
          <children>
@@ -68,7 +68,7 @@
                   </LinearGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="271.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="281.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="73.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
             <Text fill="#1a2d41" layoutX="96.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
                <font>
@@ -80,9 +80,9 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="13.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="194.53125">
+            <Text fill="#1a2d41" layoutX="13.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="194.53125">
                <font>
-                  <Font size="11.0" />
+                  <Font name="System Bold" size="11.0" />
                </font>
             </Text>
             <Text fill="#e0eae4" layoutX="328.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0">

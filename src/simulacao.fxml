@@ -90,9 +90,9 @@
                   <Font name="System Bold" size="17.0" />
                </font></TextField>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="271.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
-            <Text fill="#1a2d41" layoutX="21.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualmente um Icecoin está valendo 25 reais,contudo o gráfico pode variar ao longo dos dias, portanto fique esperto!Faça suas conversões de Icecoin nesta página para verificar quantos Icecoins você vai querer!" wrappingWidth="152.53125">
+            <Text fill="#1a2d41" layoutX="10.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Atualmente um Icecoin está valendo 25 reais,contudo o gráfico pode variar ao longo dos dias, portanto fique esperto!Faça suas conversões de Icecoin nesta página para verificar quantos Icecoins você vai querer!" wrappingWidth="200.08154296875">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Text>
             <Text fill="#e0eae4" layoutX="277.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faça a sua simulação: ">

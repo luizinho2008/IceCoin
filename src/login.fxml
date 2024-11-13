@@ -80,7 +80,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="271.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="283.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
             <Text fill="#1a2d41" layoutX="264.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DE USUÁRIO: ">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -101,9 +101,9 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="13.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="194.53125">
+            <Text fill="#1a2d41" layoutX="13.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O IceCoin é uma criptomoeda emergente que combina tecnologia de ponta com um conceito inovador de economia digital. Criado para representar um avanço na forma como lidamos com dinheiro online, o IceCoin oferece segurança, rapidez e um sistema de transações descentralizado que promete mudar o mercado financeiro. Com uma base sólida em blockchain e uma crescente aceitação no mercado, o IceCoin é mais do que apenas uma moeda digital; é uma nova forma de interagir com a economia global." wrappingWidth="194.53125">
                <font>
-                  <Font size="11.0" />
+                  <Font name="System Bold" size="11.0" />
                </font>
             </Text>
             <Text fill="#1a2d41" layoutX="25.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O QUE É ICECOIN?">

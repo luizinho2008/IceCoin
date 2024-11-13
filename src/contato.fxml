@@ -77,9 +77,9 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="162.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
-            <Text fill="#1a2d41" layoutX="14.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(11) 99684-3725" wrappingWidth="127.53125">
+            <Text fill="#1a2d41" layoutX="14.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(11) 99684-3725" wrappingWidth="149.53125">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
             <Text fill="#e0eae4" layoutX="253.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOSSOS INTEGRANTES" underline="true">
@@ -117,19 +117,19 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="14.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone Contato:" wrappingWidth="127.53125">
+            <Text fill="#1a2d41" layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone Contato:" wrappingWidth="156.53125">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="17.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Contato:" wrappingWidth="109.96875">
+            <Text fill="#1a2d41" layoutX="17.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Contato:" wrappingWidth="149.53125">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
-            <Text fill="#1a2d41" layoutX="17.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="icecoin2047@outlook.com" wrappingWidth="187.96875">
+            <Text fill="#1a2d41" layoutX="16.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="icecoin2047@outlook.com" wrappingWidth="174.4296875">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Text>
             <Text fx:id="simulacao_menuBar" layoutX="479.0" layoutY="41.0" onMouseClicked="#irParaSimulacao" strokeType="OUTSIDE" strokeWidth="0.0" text="SIMULAÇÃO">
