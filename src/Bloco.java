@@ -1,39 +1,53 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.security.MessageDigest;
-import java.util.Date;
 
-class Bloco {
-    public String hash;
-    public String hashAnterior;
-    public String dados;
-    public long timestamp;
+public class Bloco {
+    private String idBloco;
+    private String hashBlocoAnterior;
+    private List<Transacao> transacoes;
 
-    public Bloco(String dados, String hashAnterior) {
-        this.dados = dados;
-        this.hashAnterior = hashAnterior;
-        this.timestamp = new Date().getTime();
-        this.hash = calcularHash(dados);
+    public Bloco(String idBloco, String hashBlocoAnterior) {
+        this.idBloco = idBloco;
+        this.hashBlocoAnterior = hashBlocoAnterior;
+        this.transacoes = new ArrayList<>();
     }
 
-    public String calcularHash(String dados) {
-        String texto = hashAnterior + Long.toString(timestamp) + dados;
-        MessageDigest digest;
-        try {
-            digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashBytes = digest.digest(texto.getBytes());
-            StringBuilder hexString = new StringBuilder();
-            for (byte b : hashBytes) {
-                String hex = Integer.toHexString(0xff & b);
-                if (hex.length() == 1) {
-                    hexString.append('0');
-                }
-                hexString.append(hex);
-            }
-            return hexString.toString();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+    public void adicionarTransacao(Transacao transacao) {
+        transacoes.add(transacao);
+    }
+
+    public String calcularHash() {
+        // Exemplo simples de hash: concatenação dos IDs e valores
+        StringBuilder hash = new StringBuilder(idBloco);
+        for (Transacao transacao : transacoes) {
+            hash.append(transacao.getRemetente().getIdConta())
+                .append(transacao.getDestinatario().getIdConta())
+                .append(transacao.getValor());
         }
+        return hash.toString();
+    }
+
+    public void exibirInformacoesBloco() {
+        System.out.println("ID do Bloco: " + idBloco);
+        System.out.println("Hash do Bloco: " + calcularHash());
+        System.out.println("Hash do Bloco Anterior: " + hashBlocoAnterior);
+        System.out.println("Transações: ");
+        for (Transacao transacao : transacoes) {
+            System.out.println("De: " + transacao.getRemetente().getIdConta() +
+                               " Para: " + transacao.getDestinatario().getIdConta() +
+                               " Valor: " + transacao.getValor());
+        }
+    }
+
+    public String getIdBloco() {
+        return idBloco;
+    }
+
+    public String getHashBlocoAnterior() {
+        return hashBlocoAnterior;
+    }
+
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 }

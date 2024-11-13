@@ -1,51 +1,56 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.security.MessageDigest;
-import java.util.Date;
 
-class Blockchain {
+public class Blockchain {
     private List<Bloco> blocos;
+    private double quantidadeTotalMoedas = 10000;
 
     public Blockchain() {
+        // Inicializando a lista de blocos
         blocos = new ArrayList<>();
-        blocos.add(criarBlocoGênese());
+
+        // Bloco Gênesis
+        Bloco genesisBlock = new Bloco("0", null);
+        blocos.add(genesisBlock);
     }
 
-    private Bloco criarBlocoGênese() {
-        return new Bloco("Bloco Gênese", "0");
+    public void adicionarBloco(Bloco bloco) {
+        blocos.add(bloco);
     }
 
-    public void adicionarBloco(String dados) {
-        String hashAnterior = blocos.get(blocos.size() - 1).hash;
-        blocos.add(new Bloco(dados, hashAnterior));
-    }
+    public double conferirSaldo(String idConta) {
+        double saldo = 0;
 
-    public boolean verificarIntegridade() {
-        Bloco blocoAtual;
-        Bloco blocoAnterior;
-        for (int i = 1; i < blocos.size(); i++) {
-            blocoAtual = blocos.get(i);
-            blocoAnterior = blocos.get(i - 1);
-
-            if (!blocoAtual.hash.equals(blocoAtual.calcularHash(blocoAtual.dados))) {
-                return false;
-            }
-
-            if (!blocoAtual.hashAnterior.equals(blocoAnterior.hash)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public void exibirBlockchain() {
+        // Percorrer todos os blocos da blockchain
         for (Bloco bloco : blocos) {
-            System.out.println("Dados: " + bloco.dados);
-            System.out.println("Hash: " + bloco.hash);
-            System.out.println("Hash Anterior: " + bloco.hashAnterior);
-            System.out.println("Timestamp: " + bloco.timestamp);
-            System.out.println();
+            // Verificar cada transação no bloco
+            for (Transacao transacao : bloco.getTransacoes()) {
+                if (transacao.getDestinatario().getIdConta().equals(idConta)) {
+                    saldo += transacao.getValor();
+                }
+
+                if (transacao.getRemetente().getIdConta().equals(idConta)) {
+                    saldo -= transacao.getValor();
+                }
+            }
         }
+
+        return saldo;
+    }
+
+    public void criarBloco(List<Transacao> transacoes) {
+        String hashBlocoAnterior = blocos.get(blocos.size() - 1).calcularHash();
+        Bloco novoBloco = new Bloco(String.valueOf(blocos.size()), hashBlocoAnterior);
+
+        for (Transacao transacao : transacoes) {
+            novoBloco.adicionarTransacao(transacao);
+        }
+
+        novoBloco.calcularHash();
+        adicionarBloco(novoBloco);
+    }
+
+    public List<Bloco> getBlocos() {
+        return blocos;
     }
 }
