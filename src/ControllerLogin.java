@@ -22,10 +22,8 @@ public class ControllerLogin {
     @FXML
     void redirecionarBanco(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("simulacao.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("carteira.fxml"));
             Parent novaTela = loader.load();
-
-            ControllerSimulacao controller = loader.getController();
 
             Scene novaCena = new Scene(novaTela);
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
