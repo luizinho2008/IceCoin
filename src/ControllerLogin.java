@@ -24,7 +24,6 @@ public class ControllerLogin {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("carteira.fxml"));
             Parent novaTela = loader.load();
-
             Scene novaCena = new Scene(novaTela);
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
             palco.setScene(novaCena);
@@ -63,7 +62,9 @@ public class ControllerLogin {
                 alert.setContentText("Logado no sistema com sucesso!");
                 alert.showAndWait();
 
-                redirecionarBanco(event); // Corrigido
+                Sessao.setNomeUsuario(usuarioInput.getText());
+                redirecionarBanco(event);
+
             } else {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("IceCoin informa");

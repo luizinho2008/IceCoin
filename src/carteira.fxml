@@ -66,7 +66,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fill="#e0eae4" layoutX="277.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá">
+      <Text fill="WHITE" layoutX="277.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -89,7 +89,10 @@
             <Image url="@graf.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="nome" layoutX="312.0" layoutY="89.0" prefHeight="16.0" prefWidth="54.0" />
+      <Label fx:id="nome" layoutX="306.0" layoutY="86.0" prefHeight="17.0" prefWidth="129.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
       <Label fx:id="saldo" layoutX="79.0" layoutY="175.0" prefHeight="16.0" prefWidth="76.0" />
       <Text fx:id="simulacao_menuBar" layoutX="392.0" layoutY="42.0" onMouseClicked="#irParaSimulacao" strokeType="OUTSIDE" strokeWidth="0.0" text="SIMULAÇÃO">
          <font>

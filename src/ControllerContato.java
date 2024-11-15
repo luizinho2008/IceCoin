@@ -18,7 +18,6 @@ public class ControllerContato {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     void irParaSimulacao(MouseEvent event) {

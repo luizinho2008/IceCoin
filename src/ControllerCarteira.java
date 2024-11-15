@@ -1,4 +1,3 @@
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,11 @@ public class ControllerCarteira {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
+    
+    @FXML
+    public void initialize() {
+        nome.setText(Sessao.getNomeUsuario() + "!");
+    }
 
     @FXML
     void irParaContato(MouseEvent event) {
@@ -53,7 +56,4 @@ public class ControllerCarteira {
             e.printStackTrace();
         }
     }
-
-    
-
 }
