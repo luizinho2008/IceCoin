@@ -10,6 +10,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 public class ControllerLogin {
 
@@ -18,6 +24,33 @@ public class ControllerLogin {
 
     @FXML
     private TextField usuarioInput;
+
+    private Connection connectToDatabase() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/icecoin_db";  
+        String user = "root";  
+        String password = "123456";  
+    
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    private boolean verificarLogin(String nomeUsuario, String senha) {
+        String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
+        
+        try (Connection conn = connectToDatabase();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             
+            stmt.setString(1, nomeUsuario);
+            stmt.setString(2, senha);
+    
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
 
     @FXML
     void redirecionarBanco(ActionEvent event) {
@@ -48,30 +81,27 @@ public class ControllerLogin {
 
     @FXML
     void logar(ActionEvent event) {
-        if (!ControllerCadastro.usuarios.containsKey(usuarioInput.getText())) {
+        String nomeUsuario = usuarioInput.getText();  
+        String senha = senhaInput.getText();  
+
+        boolean loginValido = verificarLogin(nomeUsuario, senha);
+
+        if (loginValido) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("IceCoin informa");
             alert.setHeaderText(null);
-            alert.setContentText("Usuário não cadastrado!");
+            alert.setContentText("Logado no sistema com sucesso!");
             alert.showAndWait();
+
+            Sessao.setNomeUsuario(nomeUsuario);  
+            redirecionarBanco(event);  
         } else {
-            if (ControllerCadastro.usuarios.get(usuarioInput.getText()).equals(senhaInput.getText())) {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("IceCoin informa");
-                alert.setHeaderText(null);
-                alert.setContentText("Logado no sistema com sucesso!");
-                alert.showAndWait();
-
-                Sessao.setNomeUsuario(usuarioInput.getText());
-                redirecionarBanco(event);
-
-            } else {
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("IceCoin informa");
-                alert.setHeaderText(null);
-                alert.setContentText("Senha incorreta!");
-                alert.showAndWait();
-            }
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("IceCoin informa");
+            alert.setHeaderText(null);
+            alert.setContentText("Usuário ou senha incorretos!");
+            alert.showAndWait();
         }
     }
+
 }

@@ -10,11 +10,16 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 
 public class ControllerCadastro {
 
-    static HashMap<String, String> usuarios = new HashMap<>();
+    //static HashMap<String, String> usuarios = new HashMap<>();
 
     @FXML
     private TextField cSenhaInput;
@@ -24,6 +29,33 @@ public class ControllerCadastro {
 
     @FXML
     private TextField usuarioInput;
+
+    private Connection connectToDatabase() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/icecoin_db";  // Update with your database info
+        String user = "root";  // MySQL user
+        String password = "123456";  // MySQL password
+    
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    private boolean criarUsuario(String nomeUsuario, String senha) {
+        String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
+        
+        try (Connection conn = connectToDatabase();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             
+            stmt.setString(1, nomeUsuario);
+            stmt.setString(2, senha);
+            
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0; // Returns true if user was successfully created
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
 
     @FXML
     void redirecionarLogin(ActionEvent event) {
@@ -40,37 +72,25 @@ public class ControllerCadastro {
 
 
     @FXML
-    void cadastrar(ActionEvent event) {
-        if (usuarios.containsKey(usuarioInput.getText())) {
+    private void cadastrar(ActionEvent event) {
+        String nomeUsuario = usuarioInput.getText();  // Get username from input
+        String senha = senhaInput.getText();  // Get password from input
+
+        boolean sucesso = criarUsuario(nomeUsuario, senha);
+
+        if (sucesso) {
             Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("IceCoin informa");
-            alert.setHeaderText(null);
-            alert.setContentText("Esse usuário já tinha sido cadastrado!");
-            alert.showAndWait();
-        }
-        else if (!senhaInput.getText().equals(cSenhaInput.getText())) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("IceCoin informa");
-            alert.setHeaderText(null);
-            alert.setContentText("As senhas não condizem!");
-            alert.showAndWait();
-        }
-        else if (usuarioInput.getText().isEmpty() ||
-        senhaInput.getText().isEmpty()) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("IceCoin informa");
-            alert.setHeaderText(null);
-            alert.setContentText("Há campos vazios!");
-            alert.showAndWait();
-        }
-        else {
-            usuarios.put(usuarioInput.getText(), senhaInput.getText());
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("IceCoin informa");
+            alert.setTitle("Cadastro");
             alert.setHeaderText(null);
             alert.setContentText("Usuário cadastrado com sucesso!");
             alert.showAndWait();
-            redirecionarLogin(event);
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro de Cadastro");
+            alert.setHeaderText(null);
+            alert.setContentText("Erro ao cadastrar o usuário.");
+            alert.showAndWait();
         }
     }
+
 }
