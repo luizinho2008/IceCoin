@@ -31,9 +31,9 @@ public class ControllerCadastro {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";  // Update with your database info
-        String user = "root";  // MySQL user
-        String password = "123456";  // MySQL password
+        String url = "jdbc:mysql://localhost:3306/icecoin_db";  // Aqui coloque a URL do banco
+        String user = "root";  // Usuario BD
+        String password = "123456";  // senha do MySQL
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -48,7 +48,7 @@ public class ControllerCadastro {
             stmt.setString(2, senha);
             
             int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0; // Returns true if user was successfully created
+            return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -73,8 +73,8 @@ public class ControllerCadastro {
 
     @FXML
     private void cadastrar(ActionEvent event) {
-        String nomeUsuario = usuarioInput.getText();  // Get username from input
-        String senha = senhaInput.getText();  // Get password from input
+        String nomeUsuario = usuarioInput.getText();  
+        String senha = senhaInput.getText();
 
         boolean sucesso = criarUsuario(nomeUsuario, senha);
 
