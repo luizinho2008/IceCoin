@@ -1,9 +1,11 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -26,6 +28,9 @@ public class ControllerCarteira {
     private Stage stage;
     private Scene scene;
     
+    @FXML
+    private Button gerar_endereco;
+
     @FXML
     public void initialize() {
         nome.setText(Sessao.getNomeUsuario() + "!");
@@ -55,5 +60,10 @@ public class ControllerCarteira {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void gerarEnderecos(ActionEvent event) {
+
     }
 }
