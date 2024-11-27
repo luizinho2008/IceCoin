@@ -31,9 +31,9 @@ public class ControllerCadastro {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";  // Aqui coloque a URL do banco
-        String user = "root";  // Usuario BD
-        String password = "123456";  // senha do MySQL
+        String url = "jdbc:mysql://sql10.freesqldatabase.com/sql10748023";  // Aqui coloque a URL do banco
+        String user = "sql10748023";  // Usuario BD
+        String password = "s8vqSMjHl7";  // senha do MySQL
     
         return DriverManager.getConnection(url, user, password);
     }
