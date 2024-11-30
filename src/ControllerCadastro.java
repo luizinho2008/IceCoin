@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.util.HashMap;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.sql.Connection;
@@ -18,9 +17,7 @@ import java.sql.SQLException;
 
 
 public class ControllerCadastro {
-
-    //static HashMap<String, String> usuarios = new HashMap<>();
-
+    
     @FXML
     private TextField cSenhaInput;
 
@@ -31,9 +28,9 @@ public class ControllerCadastro {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://sql10.freesqldatabase.com/sql10748023";  // Aqui coloque a URL do banco
-        String user = "sql10748023";  // Usuario BD
-        String password = "s8vqSMjHl7";  // senha do MySQL
+        String url = "jdbc:mysql://sql10.freesqldatabase.com/sql10748023";
+        String user = "sql10748023";
+        String password = "s8vqSMjHl7";
     
         return DriverManager.getConnection(url, user, password);
     }

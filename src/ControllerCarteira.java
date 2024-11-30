@@ -63,7 +63,20 @@ public class ControllerCarteira {
     }
 
     @FXML
-    void gerarEnderecos(ActionEvent event) {
+    void irParaCotacao(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("cotacao.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void gerarEnderecos(ActionEvent event) {
+        
     }
 }

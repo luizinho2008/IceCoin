@@ -16,7 +16,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class ControllerLogin {
 
     @FXML
@@ -26,9 +25,9 @@ public class ControllerLogin {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://sql10.freesqldatabase.com/sql10748023";  // Aqui coloque a URL do banco
-        String user = "sql10748023";  // Usuario BD
-        String password = "s8vqSMjHl7";  // senha do MySQL
+        String url = "jdbc:mysql://sql10.freesqldatabase.com/sql10748023";
+        String user = "sql10748023";
+        String password = "s8vqSMjHl7";
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -38,19 +37,20 @@ public class ControllerLogin {
         
         try (Connection conn = connectToDatabase();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-             
-            stmt.setString(1, nomeUsuario);
-            stmt.setString(2, senha);
+              stmt.setString(1, nomeUsuario);
+              stmt.setString(2, senha);
     
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                Sessao.setNomeUsuario(rs.getString("nome"));
+                Sessao.setIdUsuario(rs.getInt("id_usuario"));
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
-    }
-    
-    
+        return false;
+    }    
 
     @FXML
     void redirecionarBanco(ActionEvent event) {
@@ -84,17 +84,19 @@ public class ControllerLogin {
         String nomeUsuario = usuarioInput.getText();  
         String senha = senhaInput.getText();  
 
-        boolean loginValido = verificarLogin(nomeUsuario, senha);
+        boolean loginAutenticado = verificarLogin(nomeUsuario, senha);
 
-        if (loginValido) {
+        if (loginAutenticado) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("IceCoin informa");
             alert.setHeaderText(null);
-            alert.setContentText("Logado no sistema com sucesso!");
+            alert.setContentText("Logado no sistema com sucesso");
             alert.showAndWait();
 
-            Sessao.setNomeUsuario(nomeUsuario);  
-            redirecionarBanco(event);  
+            redirecionarBanco(event);
+            
+            System.out.println("ID: " + Sessao.getIdUsuario());
+            System.out.println("Nome: " + Sessao.getNomeUsuario());
         } else {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("IceCoin informa");
@@ -103,5 +105,4 @@ public class ControllerLogin {
             alert.showAndWait();
         }
     }
-
 }
