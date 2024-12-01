@@ -41,7 +41,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerCarteira">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerCarteira">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="78.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
       <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="228.0" layoutX="253.0" layoutY="119.0" stroke="BLACK" strokeType="OUTSIDE" width="351.0" />
@@ -71,7 +71,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
+      <ImageView fx:id="usuario_menuBar" fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0" onMouseClicked="#irParaUsuario">
          <image>
             <Image url="@user.jpg" />
          </image>

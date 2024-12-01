@@ -43,7 +43,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerContato">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerContato">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" VBox.vgrow="ALWAYS">
          <children>
@@ -87,11 +87,6 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Text>
-            <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
-               <image>
-                  <Image url="@user.jpg" />
-               </image>
-            </ImageView>
             <Text fill="#e0eae4" layoutX="253.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedro Miguel Sarur Farias">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -142,6 +137,11 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Text>
+            <ImageView fx:id="usuario_menuBar" fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="14.0" onMouseClicked="#irParaUsuario">
+               <image>
+                  <Image url="@user.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

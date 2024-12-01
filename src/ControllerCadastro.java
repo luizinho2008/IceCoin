@@ -81,6 +81,7 @@ public class ControllerCadastro {
             alert.setHeaderText(null);
             alert.setContentText("Usuário cadastrado com sucesso!");
             alert.showAndWait();
+            redirecionarLogin(event);
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro de Cadastro");

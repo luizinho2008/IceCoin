@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -21,6 +22,9 @@ public class ControllerSimulacao {
 
     private Stage stage;
     private Scene scene;
+
+    @FXML
+    private ImageView usuario_menuBar;
 
     @FXML
     void converter(ActionEvent event) {
@@ -70,6 +74,18 @@ public class ControllerSimulacao {
         }
     }
 
+    @FXML
+    void irParaUsuario(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("usuario.fxml")); 
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
    
 
 }

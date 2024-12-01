@@ -1,18 +1,17 @@
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import java.io.IOException;
+
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ControllerCarteira {
+public class ControllerUsuario {
 
     @FXML
     private Text contato_menuBar;
@@ -21,19 +20,16 @@ public class ControllerCarteira {
     private Label nome;
 
     @FXML
-    private Label saldo;
+    private Button sairUsuario;
 
     @FXML
     private Text simulacao_menuBar;
 
+    @FXML
+    private Text carteira_menuBar;
+
     private Stage stage;
     private Scene scene;
-    
-    @FXML
-    private Button gerar_endereco;
-
-    @FXML
-    private ImageView usuario_menuBar;
 
     @FXML
     public void initialize() {
@@ -43,7 +39,7 @@ public class ControllerCarteira {
     @FXML
     void irParaContato(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("contato.fxml")); // Carrega a próxima tela da carteira.
+            Parent root = FXMLLoader.load(getClass().getResource("contato.fxml")); 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -56,7 +52,7 @@ public class ControllerCarteira {
     @FXML
     void irParaSimulacao(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("simulacao.fxml")); // Carrega a próxima tela da carteira.
+            Parent root = FXMLLoader.load(getClass().getResource("simulacao.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -67,9 +63,9 @@ public class ControllerCarteira {
     }
 
     @FXML
-    void irParaCotacao(ActionEvent event) {
+    void irParaCarteira(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("cotacao.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("carteira.fxml")); 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -80,9 +76,9 @@ public class ControllerCarteira {
     }
 
     @FXML
-    void irParaUsuario(MouseEvent event) {
+    void redirecionarCadastro(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("usuario.fxml")); 
+            Parent root = FXMLLoader.load(getClass().getResource("cadastro.fxml")); 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -92,9 +88,4 @@ public class ControllerCarteira {
         }
     }
 
-
-    @FXML
-    void gerarEnderecos(ActionEvent event) {
-        
-    }
 }

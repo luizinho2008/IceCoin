@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -19,6 +20,12 @@ public class ControllerCotacao {
 
     @FXML
     private Text valorReais;
+
+    private Stage stage;
+    private Scene scene;
+
+    @FXML
+    private ImageView usuario_menuBar;
 
     @FXML
     public void initialize() {
@@ -48,6 +55,19 @@ public class ControllerCotacao {
             Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
             palco.setScene(novaCena);
             palco.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void irParaUsuario(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("usuario.fxml")); 
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
