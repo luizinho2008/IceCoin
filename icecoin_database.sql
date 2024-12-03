@@ -17,6 +17,7 @@ CREATE TABLE if NOT EXISTS usuarios (
 -- Tabela: contas
 CREATE TABLE if NOT EXISTS contas (
     id_conta INT AUTO_INCREMENT PRIMARY KEY,
+    endereco TEXT NOT NULL,
     id_usuario INT NOT NULL,
     saldo DOUBLE DEFAULT 0,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
