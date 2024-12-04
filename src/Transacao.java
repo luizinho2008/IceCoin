@@ -1,19 +1,19 @@
 public class Transacao {
-    private String remetente;
-    private String destinatario;
+    private Conta remetente;
+    private Conta destinatario;
     private double valor;
 
-    public Transacao(String remetente, String destinatario, double valor) {
+    public Transacao(Conta remetente, Conta destinatario, double valor) {
         this.remetente = remetente;
         this.destinatario = destinatario;
         this.valor = valor;
     }
 
-    public String getRemetente() {
+    public Conta getRemetente() {
         return remetente;
     }
 
-    public String getDestinatario() {
+    public Conta getDestinatario() {
         return destinatario;
     }
 
