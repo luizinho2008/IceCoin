@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -86,6 +87,18 @@ public class ControllerTransferir {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void realizarTransferencia(ActionEvent event) {
+        String remetenteSelecionado = remetente.getSelectionModel().getSelectedItem();
+
+        String[] partes = remetenteSelecionado.split(" - ");
+        String Remetente = partes[0].replace("Hash: ", "").trim();
+        String Destinatario = destinatario.getText();
+
+        System.out.println("Remetente: " + Remetente);
+        System.out.println("Destinatário: " + Destinatario);
     }
 
 }
