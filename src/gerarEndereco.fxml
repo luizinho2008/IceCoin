@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,16 +36,16 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="112.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O hash da sua conta criada é:">
+      <Text fill="WHITE" layoutX="71.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O hash da sua conta criada é:">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="170.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
-      <Text fx:id="endereco" layoutX="24.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="593.0">
+      <TextField fx:id="endereco" editable="false" layoutX="18.0" layoutY="230.0" prefHeight="42.0" prefWidth="608.0" style="-fx-text-fill: block;">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
-      </Text>
+      </TextField>
    </children>
 </AnchorPane>
