@@ -42,7 +42,7 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="170.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
-      <TextField fx:id="endereco" editable="false" layoutX="18.0" layoutY="230.0" prefHeight="42.0" prefWidth="608.0" style="-fx-text-fill: block;">
+      <TextField fx:id="endereco" editable="false" layoutX="18.0" layoutY="230.0" prefHeight="42.0" prefWidth="608.0" style="-fx-text-fill: black;">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
