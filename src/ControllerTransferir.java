@@ -53,7 +53,8 @@ public class ControllerTransferir {
 
             while (resultSet.next()) {
                 String nomeRemetente = resultSet.getString("endereco");
-                remetente.getItems().add(nomeRemetente);
+                String saldo = resultSet.getString("saldo");
+                remetente.getItems().add("Hash: " + nomeRemetente + " - Saldo: IC$ " + saldo);
             }
 
         } catch (SQLException e) {
