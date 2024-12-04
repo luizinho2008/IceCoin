@@ -53,7 +53,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="240.0" layoutY="237.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
+      <TextField fx:id="quantidade" layoutX="240.0" layoutY="237.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -63,8 +63,8 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <ComboBox layoutX="240.0" layoutY="89.0" prefHeight="46.0" prefWidth="365.0" style="-fx-background-color: white;" />
-      <TextField layoutX="240.0" layoutY="163.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
+      <ComboBox fx:id="remetente" layoutX="240.0" layoutY="89.0" prefHeight="46.0" prefWidth="365.0" style="-fx-background-color: white;" />
+      <TextField fx:id="destinatario" layoutX="240.0" layoutY="163.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
