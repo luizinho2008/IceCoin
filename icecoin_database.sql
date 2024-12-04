@@ -27,12 +27,10 @@ CREATE TABLE if NOT EXISTS contas (
 -- Tabela: transacoes
 CREATE TABLE if NOT EXISTS transacoes (
     id_transacao INT AUTO_INCREMENT PRIMARY KEY,
-    id_remetente INT NOT NULL,
-    id_destinatario INT NOT NULL,
+    enderecoRemetente VARCHAR(255) NOT NULL,
+    enderecoDestinatario VARCHAR(255) NOT NULL,
     valor DOUBLE NOT NULL,
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_remetente) REFERENCES contas(id_conta),
-    FOREIGN KEY (id_destinatario) REFERENCES contas(id_conta)
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Tabela: blockchain

@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class ControllerTransferir {
     private Connection connectToDatabase() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/icecoin_db";
         String user = "root";
-        String password = "ifsp";
+        String password = "";
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -95,21 +96,108 @@ public class ControllerTransferir {
     void realizarTransferencia(ActionEvent event) {
         String remetenteSelecionado = remetente.getSelectionModel().getSelectedItem();
 
+        if (remetenteSelecionado == null || remetenteSelecionado.isEmpty() || destinatario.getText().isEmpty() || quantidade.getText().isEmpty()) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Falha na transferência");
+            alert.setHeaderText(null);
+            alert.setContentText("Preencha todos os campos corretamente!");
+            alert.showAndWait();
+            return;
+        }
+
         String[] partes = remetenteSelecionado.split(" - ");
-        String Remetente = partes[0].replace("Hash: ", "").trim();
-        String Destinatario = destinatario.getText();
+        String remetenteHash = partes[0].replace("Hash: ", "").trim();
+        String destinatarioHash = destinatario.getText().trim();
+        double quantidadeTransferencia;
 
-        System.out.println("Remetente: " + Remetente);
-        System.out.println("Destinatário: " + Destinatario);
+        try {
+            quantidadeTransferencia = Double.parseDouble(quantidade.getText());
+            if (quantidadeTransferencia <= 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Informe uma quantidade válida!");
+            alert.showAndWait();
+            return;
+        }
 
-
-        if(Remetente.equals(Destinatario)) {
+        if (remetenteHash.equals(destinatarioHash)) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Falha na transferência");
             alert.setHeaderText(null);
-            alert.setContentText("Destinatário inválido!");
+            alert.setContentText("O destinatário não pode ser o mesmo que o remetente!");
+            alert.showAndWait();
+            return;
+        }
+
+        try (Connection connection = connectToDatabase()) {
+            connection.setAutoCommit(false);
+
+            String debitarQuery = "UPDATE contas SET saldo = saldo - ? WHERE endereco = ? AND saldo >= ?";
+            var debitarStmt = connection.prepareStatement(debitarQuery);
+            debitarStmt.setDouble(1, quantidadeTransferencia);
+            debitarStmt.setString(2, remetenteHash);
+            debitarStmt.setDouble(3, quantidadeTransferencia);
+            int rowsUpdated = debitarStmt.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                connection.rollback();
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Falha na transferência");
+                alert.setHeaderText(null);
+                alert.setContentText("Saldo insuficiente para realizar a transferência!");
+                alert.showAndWait();
+                return;
+            }
+
+            String creditarQuery = "UPDATE contas SET saldo = saldo + ? WHERE endereco = ?";
+            var creditarStmt = connection.prepareStatement(creditarQuery);
+            creditarStmt.setDouble(1, quantidadeTransferencia);
+            creditarStmt.setString(2, destinatarioHash);
+            rowsUpdated = creditarStmt.executeUpdate();
+
+            connection.commit();
+            
+            String sql = "INSERT INTO transacoes(enderecoRemetente, enderecoDestinatario, valor) VALUES (?, ?, ?)";
+        
+            try (Connection conn = connectToDatabase();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+                
+                stmt.setString(1, remetenteHash);
+                stmt.setString(2, destinatarioHash);
+                stmt.setDouble(3, quantidadeTransferencia);
+                
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Transferência concluída");
+            alert.setHeaderText(null);
+            alert.setContentText("Transferência realizada com sucesso!");
+            alert.showAndWait();
+
+            try {
+                Parent novaTela = FXMLLoader.load(getClass().getResource("carteira.fxml"));
+                Scene novaCena = new Scene(novaTela);
+                Stage palco = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                palco.setScene(novaCena);
+                palco.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Erro");
+            alert.setHeaderText(null);
+            alert.setContentText("Ocorreu um erro ao realizar a transferência. Tente novamente.");
             alert.showAndWait();
         }
     }
-
 }

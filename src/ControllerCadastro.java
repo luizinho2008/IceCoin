@@ -30,7 +30,7 @@ public class ControllerCadastro {
     private Connection connectToDatabase() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/icecoin_db";
         String user = "root";
-        String password = "ifsp";
+        String password = "";
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -81,6 +81,8 @@ public class ControllerCadastro {
             alert.setHeaderText(null);
             alert.setContentText("Usuário cadastrado com sucesso!");
             alert.showAndWait();
+
+            redirecionarLogin(event);
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erro de Cadastro");

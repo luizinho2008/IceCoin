@@ -31,7 +31,7 @@ public class ControllerGerarEndereco {
     private Connection connectToDatabase() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/icecoin_db";
         String user = "root";
-        String password = "ifsp";
+        String password = "";
     
         return DriverManager.getConnection(url, user, password);
     }
