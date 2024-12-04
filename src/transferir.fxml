@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -52,7 +53,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="240.0" layoutY="237.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: black;">
+      <TextField layoutX="240.0" layoutY="237.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -62,5 +63,11 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Button>
+      <ComboBox layoutX="240.0" layoutY="89.0" prefHeight="46.0" prefWidth="365.0" style="-fx-background-color: white;" />
+      <TextField layoutX="240.0" layoutY="163.0" prefHeight="42.0" prefWidth="365.0" style="-fx-text-fill: white; -fx-background-color: #2c5670;">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
