@@ -76,9 +76,9 @@ public class ControllerUsuario {
     }
 
     @FXML
-    void redirecionarCadastro(MouseEvent event) {
+    void redirecionarLogin(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("cadastro.fxml")); 
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml")); 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

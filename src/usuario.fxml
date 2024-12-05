@@ -63,6 +63,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Button fx:id="sairUsuario" layoutX="227.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#redirecionarCadastro" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #2c5670;" text="SAIR" textFill="#e0eae4" />
+      <Button fx:id="sairUsuario" layoutX="227.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#redirecionarLogin" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #2c5670;" text="SAIR" textFill="#e0eae4" />
    </children>
 </AnchorPane>
