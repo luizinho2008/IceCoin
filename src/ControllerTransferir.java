@@ -175,11 +175,30 @@ public class ControllerTransferir {
                 e.printStackTrace();
             }
 
+            Transacao transacao = new Transacao(remetenteHash, destinatarioHash, quantidadeTransferencia);
+
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Transferência concluída");
             alert.setHeaderText(null);
             alert.setContentText("Transferência realizada com sucesso!");
             alert.showAndWait();
+
+            Bloco bloco = new Bloco(remetenteHash, destinatarioHash, quantidadeTransferencia);
+
+            sql = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco) VALUES(?, ?)";
+        
+            try (Connection conn = connectToDatabase();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+                
+                stmt.setString(1, bloco.getHashBlocoAnterior());
+                stmt.setString(2, bloco.getHashBloco());
+                
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            bloco.exibirInformacoesBloco();
 
             try {
                 Parent novaTela = FXMLLoader.load(getClass().getResource("carteira.fxml"));

@@ -1,53 +1,90 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Bloco {
-    private String idBloco;
     private String hashBlocoAnterior;
-    private List<Transacao> transacoes;
+    private String hashBloco;
+    private String remetente;
+    private String destinatario;
+    private double quantidade;
 
-    public Bloco(String idBloco, String hashBlocoAnterior) {
-        this.idBloco = idBloco;
-        this.hashBlocoAnterior = hashBlocoAnterior;
-        this.transacoes = new ArrayList<>();
+    public Bloco(String remetente, String destinatario, double quantidade) {
+        this.hashBlocoAnterior = obterUltimoHashBloco();
+        this.remetente = remetente;
+        this.destinatario = destinatario;
+        this.quantidade = quantidade;
+        this.hashBloco = calcularHash();
     }
 
-    public void adicionarTransacao(Transacao transacao) {
-        transacoes.add(transacao);
-    }
+    private String calcularHash() {
+        try {
+            String dados = hashBlocoAnterior + remetente + destinatario + quantidade;
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(dados.getBytes());
+            StringBuilder hexString = new StringBuilder();
 
-    public String calcularHash() {
-        // Exemplo simples de hash: concatenação dos IDs e valores
-        StringBuilder hash = new StringBuilder(idBloco);
-        for (Transacao transacao : transacoes) {
-            hash.append(transacao.getRemetente().getIdConta())
-                .append(transacao.getDestinatario().getIdConta())
-                .append(transacao.getValor());
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Erro ao calcular o hash", e);
         }
-        return hash.toString();
+    }
+
+    private String obterUltimoHashBloco() {
+        String ultimoHash = "0";
+        String url = "jdbc:mysql://localhost:3306/icecoin_db";
+        String usuario = "root";
+        String senha = "";
+
+        String sql = "SELECT hash_bloco FROM blockchain ORDER BY id_bloco DESC LIMIT 1";
+
+        try (Connection conn = DriverManager.getConnection(url, usuario, senha);
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                ultimoHash = rs.getString("hash_bloco");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ultimoHash;
     }
 
     public void exibirInformacoesBloco() {
-        System.out.println("ID do Bloco: " + idBloco);
-        System.out.println("Hash do Bloco: " + calcularHash());
+        System.out.println("\nHash do Bloco: " + hashBloco);
         System.out.println("Hash do Bloco Anterior: " + hashBlocoAnterior);
-        System.out.println("Transações: ");
-        for (Transacao transacao : transacoes) {
-            System.out.println("De: " + transacao.getRemetente().getIdConta() +
-                               " Para: " + transacao.getDestinatario().getIdConta() +
-                               " Valor: " + transacao.getValor());
-        }
+        System.out.println("Remetente: " + remetente);
+        System.out.println("Destinatário: " + destinatario);
+        System.out.println("Quantidade: " + quantidade);
     }
 
-    public String getIdBloco() {
-        return idBloco;
+    public String getHashBloco() {
+        return this.hashBloco;
     }
 
     public String getHashBlocoAnterior() {
-        return hashBlocoAnterior;
+        return this.hashBlocoAnterior;
     }
 
-    public List<Transacao> getTransacoes() {
-        return transacoes;
+    public String getRemetente() {
+        return this.remetente;
+    }
+
+    public String getDestinatario() {
+        return this.destinatario;
+    }
+
+    public double getQuantidade() {
+        return this.quantidade;
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,10 +42,14 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text fx:id="blocos" layoutX="50.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font name="System Bold" size="23.0" />
-         </font>
-      </Text>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" layoutX="29.0" layoutY="143.0" prefHeight="217.0" prefWidth="581.0">
+         <content>
+            <Text fx:id="blocos" layoutX="50.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

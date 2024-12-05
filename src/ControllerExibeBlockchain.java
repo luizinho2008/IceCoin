@@ -1,4 +1,9 @@
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +27,48 @@ public class ControllerExibeBlockchain {
 
     private Stage stage;
     private Scene scene;
+
+    private Connection connectToDatabase() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/icecoin_db";
+        String user = "root";
+        String password = "";
+    
+        return DriverManager.getConnection(url, user, password);
+    }
+
+    @FXML
+    private void initialize() {
+        String sql = "SELECT * FROM blockchain";
+        StringBuilder builder = new StringBuilder();
+
+        try (Connection conn = connectToDatabase();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()) {
+            
+            while (rs.next()) {
+                int id = rs.getInt("id_bloco");
+                String hba = rs.getString("hash_bloco_anterior");
+                String hb = rs.getString("hash_bloco");
+                
+                // Verifica se o ID do bloco é 1
+                if (id == 1) {
+                    builder.append("Bloco Gênese")
+                    .append("\nHash do bloco anterior: ").append(hba)
+                        .append("\nHash do bloco: ").append(hb)
+                        .append("\n-------------------\n");
+                } else {
+                    builder.append("Bloco ").append(id)
+                        .append("\nHash do bloco anterior: ").append(hba)
+                        .append("\nHash do bloco: ").append(hb)
+                        .append("\n-------------------\n");
+                }
+            }
+
+            blocos.setText(builder.toString());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     void irParaCarteira(MouseEvent event) {
