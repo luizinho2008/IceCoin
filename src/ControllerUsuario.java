@@ -33,7 +33,7 @@ public class ControllerUsuario {
 
     @FXML
     public void initialize() {
-        nome.setText(Sessao.getNomeUsuario() + "!");
+        nome.setText(Sessao.getNomeUsuario());
     }
 
     @FXML
@@ -77,6 +77,9 @@ public class ControllerUsuario {
 
     @FXML
     void redirecionarLogin(MouseEvent event) {
+        Sessao.setIdUsuario(null);
+        Sessao.setNomeUsuario(null);
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml")); 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
