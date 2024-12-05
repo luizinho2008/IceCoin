@@ -81,9 +81,9 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </Text>
-      <Button layoutX="43.0" layoutY="222.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="TRANSFERIR" textFill="#e0eae4" />
+      <Button layoutX="43.0" layoutY="222.0" mnemonicParsing="false" onAction="#transferir" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="TRANSFERIR" textFill="#e0eae4" />
       <Button layoutX="43.0" layoutY="317.0" mnemonicParsing="false" onAction="#irParaCotacao" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="COTAÇÃO" textFill="#e0eae4" />
-      <Button layoutX="43.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="ENDEREÇOS" textFill="#e0eae4" />
+      <Button layoutX="43.0" layoutY="269.0" mnemonicParsing="false" onAction="#exibeBlockchain" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="BLOCKCHAIN" textFill="#e0eae4" />
       <ImageView fitHeight="199.0" fitWidth="303.0" layoutX="277.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@graf.jpg" />

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerExibeBlockchain">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e0eae4" height="78.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
+      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e0eae4" height="233.0" layoutX="18.0" layoutY="136.0" stroke="BLACK" strokeType="OUTSIDE" width="603.0" />
+      <Text fill="#1a2d41" layoutX="103.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICECOIN">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="91.0" fitWidth="54.0" layoutX="31.0" layoutY="10.0" preserveRatio="true">
+         <image>
+            <Image url="@img_icecoin.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="contato_menuBar" layoutX="495.0" layoutY="42.0" onMouseClicked="#irParaContato" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTATO">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
+         <image>
+            <Image url="@user.jpg" />
+         </image>
+      </ImageView>
+      <Text fx:id="carteira_menuBar" layoutX="401.0" layoutY="42.0" onMouseClicked="#irParaCarteira" strokeType="OUTSIDE" strokeWidth="0.0" text="CARTEIRA">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="245.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blockchain">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="blocos" layoutX="50.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
