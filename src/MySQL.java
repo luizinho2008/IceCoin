@@ -1,7 +1,7 @@
 public class MySQL {
     private static String url = "jdbc:mysql://localhost:3306/icecoin_db";
     private static String user = "root";
-    private static String password = "ifsp";
+    private static String password = "";
 
 
     public static String getUrl() {

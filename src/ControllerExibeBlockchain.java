@@ -56,13 +56,13 @@ public class ControllerExibeBlockchain {
                     builder.append("Bloco Gênese")
                     .append("\nHash do bloco anterior: ").append(hba)
                         .append("\nHash do bloco: ").append(hb)
-                        .append("\n-------------------\n");
+                        .append("\n-------------------\n\n");
                 } else {
                     builder.append("Bloco ").append(id)
                         .append("\nHash do bloco anterior: ").append(hba)
                         .append("\nHash do bloco: ").append(hb)
                         .append("\nValor: IC$ ").append(valor)
-                        .append("\n-------------------\n");
+                        .append("\n-------------------\n\n");
                 }
             }
 
