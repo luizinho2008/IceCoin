@@ -40,13 +40,14 @@ public class Bloco {
 
     private String obterUltimoHashBloco() {
         String ultimoHash = "0";
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String usuario = "root";
-        String senha = "";
+        
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
 
-        String sql = "SELECT hash_bloco FROM blockchain ORDER BY id_bloco DESC LIMIT 1";
+        String sql = "SELECT * FROM blockchain ORDER BY id_bloco DESC LIMIT 1";
 
-        try (Connection conn = DriverManager.getConnection(url, usuario, senha);
+        try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 

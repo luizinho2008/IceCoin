@@ -29,9 +29,9 @@ public class ControllerExibeBlockchain {
     private Scene scene;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String user = "root";
-        String password = "";
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -49,6 +49,7 @@ public class ControllerExibeBlockchain {
                 int id = rs.getInt("id_bloco");
                 String hba = rs.getString("hash_bloco_anterior");
                 String hb = rs.getString("hash_bloco");
+                String valor = rs.getString("valor");
                 
                 // Verifica se o ID do bloco é 1
                 if (id == 1) {
@@ -60,6 +61,7 @@ public class ControllerExibeBlockchain {
                     builder.append("Bloco ").append(id)
                         .append("\nHash do bloco anterior: ").append(hba)
                         .append("\nHash do bloco: ").append(hb)
+                        .append("\nValor: IC$ ").append(valor)
                         .append("\n-------------------\n");
                 }
             }

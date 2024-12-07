@@ -39,9 +39,9 @@ public class ControllerTransferir {
     private Scene scene;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String user = "root";
-        String password = "";
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -185,13 +185,14 @@ public class ControllerTransferir {
 
             Bloco bloco = new Bloco(remetenteHash, destinatarioHash, quantidadeTransferencia);
 
-            sql = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco) VALUES(?, ?)";
+            sql = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, valor) VALUES(?, ?, ?)";
         
             try (Connection conn = connectToDatabase();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
                 
                 stmt.setString(1, bloco.getHashBlocoAnterior());
                 stmt.setString(2, bloco.getHashBloco());
+                stmt.setDouble(3, quantidadeTransferencia);
                 
                 stmt.executeUpdate();
             } catch (SQLException e) {

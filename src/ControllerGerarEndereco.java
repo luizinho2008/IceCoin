@@ -29,9 +29,9 @@ public class ControllerGerarEndereco {
     private Scene scene;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String user = "root";
-        String password = "";
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
     
         return DriverManager.getConnection(url, user, password);
     }

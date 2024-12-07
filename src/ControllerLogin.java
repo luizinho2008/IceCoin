@@ -25,9 +25,9 @@ public class ControllerLogin {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String user = "root";
-        String password = "";
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -87,11 +87,6 @@ public class ControllerLogin {
         boolean loginAutenticado = verificarLogin(nomeUsuario, senha);
 
         if (loginAutenticado) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("IceCoin informa");
-            alert.setHeaderText(null);
-            alert.setContentText("Logado no sistema com sucesso");
-            alert.showAndWait();
 
             redirecionarBanco(event);
             

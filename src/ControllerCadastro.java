@@ -28,9 +28,9 @@ public class ControllerCadastro {
     private TextField usuarioInput;
 
     private Connection connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/icecoin_db";
-        String user = "root";
-        String password = "";
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
     
         return DriverManager.getConnection(url, user, password);
     }
@@ -76,11 +76,6 @@ public class ControllerCadastro {
         boolean sucesso = criarUsuario(nomeUsuario, senha);
 
         if (sucesso) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Cadastro");
-            alert.setHeaderText(null);
-            alert.setContentText("Usuário cadastrado com sucesso!");
-            alert.showAndWait();
             redirecionarLogin(event);
         } else {
             Alert alert = new Alert(AlertType.ERROR);
