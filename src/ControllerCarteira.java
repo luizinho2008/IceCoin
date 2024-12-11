@@ -1,6 +1,12 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,6 +32,12 @@ public class ControllerCarteira {
     @FXML
     private Text simulacao_menuBar;
 
+    @FXML
+    private Label saldoicecoin;
+
+    @FXML
+    private Label saldoreais;
+
     private Stage stage;
     private Scene scene;
     
@@ -35,10 +47,38 @@ public class ControllerCarteira {
     @FXML
     private ImageView usuario_menuBar;
 
-    @FXML
-    public void initialize() {
-        nome.setText(Sessao.getNomeUsuario() + "!");
+    private Connection connectToDatabase() throws SQLException {
+        String url = MySQL.getUrl();
+        String user = MySQL.getUser();
+        String password = MySQL.getPassword();
+    
+        return DriverManager.getConnection(url, user, password);
     }
+
+    @FXML
+public void initialize() {
+    nome.setText(Sessao.getNomeUsuario() + "!");
+    
+    String query = "SELECT SUM(saldo) FROM contas WHERE id_usuario = ?";
+    
+    try (Connection conn = connectToDatabase();
+         PreparedStatement stmt = conn.prepareStatement(query)) {
+        stmt.setInt(1, Sessao.getIdUsuario());
+
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            Double saldo = rs.getDouble(1);
+            if (saldo != null) {
+                saldoicecoin.setText("IC$ " + String.format("%.2f", saldo));
+            } else {
+                saldoicecoin.setText("Você não possui nenhuma conta");
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 
     @FXML
     void irParaContato(MouseEvent event) {
