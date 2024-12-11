@@ -124,6 +124,24 @@ public class ControllerTransferir {
             return;
         }
 
+        try (Connection connection = connectToDatabase()) {
+            String queryDestinatario = "SELECT 1 FROM contas WHERE endereco = ?";
+            var stmtDestinatario = connection.prepareStatement(queryDestinatario);
+            stmtDestinatario.setString(1, destinatarioHash);
+            var rsDestinatario = stmtDestinatario.executeQuery();
+
+            if (!rsDestinatario.next()) {
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Falha na transferência");
+                alert.setHeaderText(null);
+                alert.setContentText("O destinatário não existe!");
+                alert.showAndWait();
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         if (remetenteHash.equals(destinatarioHash)) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Falha na transferência");
@@ -224,5 +242,5 @@ public class ControllerTransferir {
             alert.setContentText("Ocorreu um erro ao realizar a transferência. Tente novamente.");
             alert.showAndWait();
         }
-    }
+        }
 }
