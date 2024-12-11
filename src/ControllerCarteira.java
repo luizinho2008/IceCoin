@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -56,28 +57,33 @@ public class ControllerCarteira {
     }
 
     @FXML
-public void initialize() {
-    nome.setText(Sessao.getNomeUsuario() + "!");
-    
-    String query = "SELECT SUM(saldo) FROM contas WHERE id_usuario = ?";
-    
-    try (Connection conn = connectToDatabase();
-         PreparedStatement stmt = conn.prepareStatement(query)) {
-        stmt.setInt(1, Sessao.getIdUsuario());
+    public void initialize() {
+        nome.setText(Sessao.getNomeUsuario() + "!");
 
-        ResultSet rs = stmt.executeQuery();
-        if (rs.next()) {
-            Double saldo = rs.getDouble(1);
-            if (saldo != null) {
-                saldoicecoin.setText("IC$ " + String.format("%.2f", saldo));
-            } else {
-                saldoicecoin.setText("Você não possui nenhuma conta");
+        String query = "SELECT SUM(saldo) FROM contas WHERE id_usuario = ?";
+
+        try (Connection conn = connectToDatabase();
+            PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setInt(1, Sessao.getIdUsuario());
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                double saldo = rs.getDouble(1);
+
+                if (saldo == 0) {
+                    saldoicecoin.setText("Não há contas");
+                    saldoreais.setText("Não há contas");
+                } else {
+                    saldoicecoin.setText("IC$ " + String.format(Locale.US, "%.2f", saldo));
+                    saldoreais.setText("R$ " + String.format(Locale.US, "%.2f", saldo * IceCoin.getValor()));
+                }
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            saldoicecoin.setText("Erro ao carregar saldo");
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
     }
-}
 
 
     @FXML
