@@ -49,6 +49,8 @@ public class ControllerExibeBlockchain {
                 int id = rs.getInt("id_bloco");
                 String hba = rs.getString("hash_bloco_anterior");
                 String hb = rs.getString("hash_bloco");
+                String r = rs.getString("remetente");
+                String d = rs.getString("destinatario");
                 String valor = rs.getString("valor");
                 
                 // Verifica se o ID do bloco é 1
@@ -61,6 +63,8 @@ public class ControllerExibeBlockchain {
                     builder.append("Bloco ").append(id)
                         .append("\nHash do bloco anterior: ").append(hba)
                         .append("\nHash do bloco: ").append(hb)
+                        .append("\nRemetente: ").append(r)
+                        .append("\nDestinatário: ").append(d)
                         .append("\nValor: IC$ ").append(valor)
                         .append("\n-------------------\n\n");
                 }

@@ -29,8 +29,10 @@ CREATE TABLE if NOT EXISTS blockchain (
     id_bloco INT AUTO_INCREMENT PRIMARY KEY,
     hash_bloco_anterior VARCHAR(255) NOT NULL,
     hash_bloco VARCHAR(255) NOT NULL,
+    remetente VARCHAR(255),
+    destinatario VARCHAR(255),
     valor DOUBLE,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, valor) VALUES('0', '0', null);
+INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, remetente, destinatario, valor) VALUES('0', '0', null, null, null);

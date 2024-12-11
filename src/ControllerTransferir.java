@@ -185,19 +185,24 @@ public class ControllerTransferir {
 
             Bloco bloco = new Bloco(remetenteHash, destinatarioHash, quantidadeTransferencia);
 
-            sql = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, valor) VALUES(?, ?, ?)";
+            sql = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, remetente, destinatario, valor) VALUES(?, ?, ?, ?, ?)";
         
             try (Connection conn = connectToDatabase();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
                 
                 stmt.setString(1, bloco.getHashBlocoAnterior());
                 stmt.setString(2, bloco.getHashBloco());
-                stmt.setDouble(3, quantidadeTransferencia);
+                stmt.setString(3, remetenteHash);
+                stmt.setString(4, destinatarioHash);
+                stmt.setDouble(5, quantidadeTransferencia);
                 
                 stmt.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+            System.out.println("\nRemetente: " + transacao.getRemetente());
+            System.out.println("Destinatário: " + transacao.getDestinatario());
 
             bloco.exibirInformacoesBloco();
 
