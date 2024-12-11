@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
@@ -38,19 +39,31 @@ public class ControllerGerarEndereco {
 
     @FXML
     public void initialize() {
-        Conta conta = new Conta(10);
-        endereco.setText(String.valueOf(conta.getIdConta()));
+        String sqlVerificaUsuario = "SELECT COUNT(*) FROM contas";
+        String sqlInserirConta = "INSERT INTO contas(endereco, id_usuario, saldo) VALUES (?, ?, ?)";
 
-        String sql = "INSERT INTO contas(endereco, id_usuario, saldo) VALUES (?, ?, ?)";
-        
         try (Connection conn = connectToDatabase();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-             
-            stmt.setString(1, conta.getIdConta());
-            stmt.setString(2, String.valueOf(Sessao.getIdUsuario()));
-            stmt.setString(3, String.valueOf(conta.getSaldoInicial()));
-            
-            stmt.executeUpdate();
+             PreparedStatement stmtVerificaUsuario = conn.prepareStatement(sqlVerificaUsuario)) {
+
+            ResultSet rs = stmtVerificaUsuario.executeQuery();
+
+            int usuarioCount = 0;
+            if (rs.next()) {
+                usuarioCount = rs.getInt(1);
+            }
+
+            double saldoInicial = (usuarioCount == 0) ? 20000 : 0;
+            Conta conta = new Conta(saldoInicial);
+            endereco.setText(String.valueOf(conta.getIdConta()));
+
+            try (PreparedStatement stmtConta = conn.prepareStatement(sqlInserirConta)) {
+                stmtConta.setString(1, conta.getIdConta());
+                stmtConta.setString(2, String.valueOf(Sessao.getIdUsuario()));
+                stmtConta.setDouble(3, saldoInicial);
+
+                stmtConta.executeUpdate();
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

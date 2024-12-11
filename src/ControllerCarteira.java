@@ -143,36 +143,13 @@ public class ControllerCarteira {
 
     @FXML
     void gerarEnderecos(ActionEvent event) {
-        String query = "SELECT SUM(saldo) + 10 FROM contas";
-
-        try (Connection conn = connectToDatabase();
-            PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                double total = rs.getDouble(1);
-
-                if(total > IceCoin.getQuantidade()) {
-                    Alert alert = new Alert(AlertType.WARNING);
-                    alert.setTitle("Falha ao gerar endereço");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Limite de IceCoins não pode ser ultrapassado");
-                    alert.showAndWait();
-                    return;
-                }
-                else {
-                    try {
-                        Parent root = FXMLLoader.load(getClass().getResource("gerarEndereco.fxml"));
-                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        } catch (SQLException e) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("gerarEndereco.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
