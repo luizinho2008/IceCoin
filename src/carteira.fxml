@@ -37,6 +37,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -97,24 +98,37 @@
       <Button fx:id="gerar_endereco" layoutX="45.0" layoutY="175.0" mnemonicParsing="false" onAction="#gerarEnderecos" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="GERAR ENDEREÇO" textFill="#e0eae4" />
       <Text fill="#1a2d41" layoutX="306.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo em Icecoin:">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="17.5" />
          </font>
       </Text>
-      <Text fill="#1a2d41" layoutX="303.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo em Reais:">
+      <Text fill="#1a2d41" layoutX="304.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo em Reais:">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="17.5" />
          </font>
       </Text>
-      <Label fx:id="saldoreais" layoutX="303.0" layoutY="288.0" prefHeight="20.0" prefWidth="129.0" textFill="#1a2d41">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="saldoicecoin" layoutX="306.0" layoutY="191.0" prefHeight="20.0" prefWidth="281.0" textFill="#1a2d41">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
       <Button layoutX="45.0" layoutY="323.0" mnemonicParsing="false" onAction="#seusHashs" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #2c5670;" text="SEUS HASHS" textFill="#e0eae4" />
+      <Pane layoutX="303.0" layoutY="177.0" prefHeight="54.0" prefWidth="281.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e); -fx-background-radius: 20px;">
+         <children>
+            <Label fx:id="saldoicecoin" layoutX="7.0" layoutY="9.0" prefHeight="36.0" prefWidth="264.0" style="-fx-text-fill: white;">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="303.0" layoutY="283.0" prefHeight="54.0" prefWidth="281.0" style="-fx-background-color: linear-gradient(#215069,  #3a7b9e); -fx-background-radius: 20px;">
+         <children>
+            <Label fx:id="saldoicecoin1" layoutX="9.0" layoutY="9.0" prefHeight="36.0" prefWidth="264.0" style="-fx-text-fill: white;">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="saldoreais" layoutX="9.0" layoutY="9.0" prefHeight="36.0" prefWidth="281.0" style="-fx-text-fill: white;" textFill="#1a2d41">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
