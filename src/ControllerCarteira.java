@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -141,13 +143,36 @@ public class ControllerCarteira {
 
     @FXML
     void gerarEnderecos(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("gerarEndereco.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
+        String query = "SELECT SUM(saldo) + 10 FROM contas";
+
+        try (Connection conn = connectToDatabase();
+            PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                double total = rs.getDouble(1);
+
+                if(total > IceCoin.getQuantidade()) {
+                    Alert alert = new Alert(AlertType.WARNING);
+                    alert.setTitle("Falha ao gerar endereço");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Limite de IceCoins não pode ser ultrapassado");
+                    alert.showAndWait();
+                    return;
+                }
+                else {
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getResource("gerarEndereco.fxml"));
+                        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
