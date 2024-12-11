@@ -71,9 +71,9 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
+      <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0" onMouseClicked="#irParaUsuario">
          <image>
-            <Image url="@user.jpg" />
+            <Image url="@user.png" />
          </image>
       </ImageView>
       <Text fill="#1a2d41" layoutX="64.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0">

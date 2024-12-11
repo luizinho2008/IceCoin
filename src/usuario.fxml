@@ -30,7 +30,7 @@
       </ImageView>
       <ImageView fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0">
          <image>
-            <Image url="@user.jpg" />
+            <Image url="@user.png" />
          </image>
       </ImageView>
       <Label fx:id="nome" layoutX="257.0" layoutY="263.0" prefHeight="32.0" prefWidth="129.0" style="-fx-text-fill: black;" textAlignment="CENTER">
@@ -43,9 +43,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <ImageView fitHeight="136.0" fitWidth="137.0" layoutX="252.0" layoutY="107.0">
+      <ImageView fitHeight="164.0" fitWidth="161.0" layoutX="241.0" layoutY="94.0">
          <image>
-            <Image url="@user.jpg" />
+            <Image url="@user.png" />
          </image>
       </ImageView>
       <Text fx:id="contato_menuBar" layoutX="495.0" layoutY="42.0" onMouseClicked="#irParaContato" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTATO">

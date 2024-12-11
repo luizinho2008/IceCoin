@@ -28,7 +28,7 @@
       </Text>
       <ImageView fx:id="usuario_menuBar" fitHeight="42.0" fitWidth="43.0" layoutX="583.0" layoutY="16.0" onMouseClicked="#irParaUsuario">
          <image>
-            <Image url="@user.jpg" />
+            <Image url="@user.png" />
          </image>
       </ImageView>
       <Text fx:id="carteira_menuBar" layoutX="407.0" layoutY="42.0" onMouseClicked="#irParaCarteira" strokeType="OUTSIDE" strokeWidth="0.0" text="CARTEIRA">
