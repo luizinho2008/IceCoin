@@ -71,13 +71,8 @@ public class ControllerCarteira {
             if (rs.next()) {
                 double saldo = rs.getDouble(1);
 
-                if (saldo == 0) {
-                    saldoicecoin.setText("Não há contas");
-                    saldoreais.setText("Não há contas");
-                } else {
-                    saldoicecoin.setText("IC$ " + String.format(Locale.US, "%.2f", saldo));
-                    saldoreais.setText("R$ " + String.format(Locale.US, "%.2f", saldo * IceCoin.getValor()));
-                }
+                saldoicecoin.setText("IC$ " + String.format(Locale.US, "%.2f", saldo));
+                saldoreais.setText("R$ " + String.format(Locale.US, "%.2f", saldo * IceCoin.getValor()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
