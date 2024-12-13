@@ -34,5 +34,3 @@ CREATE TABLE if NOT EXISTS blockchain (
     valor DOUBLE,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, remetente, destinatario, valor) VALUES('0', '0', null, null, 20000);

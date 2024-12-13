@@ -41,6 +41,7 @@ public class ControllerGerarEndereco {
     public void initialize() {
         String sqlVerificaUsuario = "SELECT COUNT(*) FROM contas";
         String sqlInserirConta = "INSERT INTO contas(endereco, id_usuario, saldo) VALUES (?, ?, ?)";
+        String sqlInserirBlocoGenese = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, remetente, destinatario, valor) VALUES(?, ?, ?, ?, ?)";
 
         try (Connection conn = connectToDatabase();
              PreparedStatement stmtVerificaUsuario = conn.prepareStatement(sqlVerificaUsuario)) {
@@ -62,6 +63,18 @@ public class ControllerGerarEndereco {
                 stmtConta.setDouble(3, saldoInicial);
 
                 stmtConta.executeUpdate();
+            }
+
+            if(saldoInicial == 20000) {
+                try (PreparedStatement stmtBloco = conn.prepareStatement(sqlInserirBlocoGenese)) {
+                    stmtBloco.setString(1, "0");
+                    stmtBloco.setString(2, "0");
+                    stmtBloco.setString(3, null);
+                    stmtBloco.setString(4, null);
+                    stmtBloco.setDouble(5, saldoInicial);
+    
+                    stmtBloco.executeUpdate();
+                }
             }
 
         } catch (SQLException e) {
