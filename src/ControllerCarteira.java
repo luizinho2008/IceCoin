@@ -185,4 +185,17 @@ public class ControllerCarteira {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void verGrafico(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("grafico.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
