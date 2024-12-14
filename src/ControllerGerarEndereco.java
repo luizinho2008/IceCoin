@@ -53,7 +53,7 @@ public class ControllerGerarEndereco {
                 usuarioCount = rs.getInt(1);
             }
 
-            double saldoInicial = (usuarioCount == 0) ? 20000 : 0;
+            double saldoInicial = (usuarioCount == 0) ? IceCoin.getQuantidade() : 0;
             Conta conta = new Conta(saldoInicial);
             endereco.setText(String.valueOf(conta.getIdConta()));
 
@@ -65,7 +65,7 @@ public class ControllerGerarEndereco {
                 stmtConta.executeUpdate();
             }
 
-            if(saldoInicial == 20000) {
+            if(saldoInicial == IceCoin.getQuantidade()) {
                 try (PreparedStatement stmtBloco = conn.prepareStatement(sqlInserirBlocoGenese)) {
                     stmtBloco.setString(1, "0");
                     stmtBloco.setString(2, "0");
