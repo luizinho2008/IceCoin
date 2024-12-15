@@ -34,3 +34,11 @@ CREATE TABLE if NOT EXISTS blockchain (
     valor DOUBLE,
     data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE if NOT EXISTS historico (
+    id_historico INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    valor DOUBLE,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);

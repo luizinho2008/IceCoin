@@ -12,12 +12,11 @@ import javafx.scene.control.Alert.AlertType;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-
 public class ControllerCadastro {
-    
+
     @FXML
     private TextField cSenhaInput;
 
@@ -31,28 +30,43 @@ public class ControllerCadastro {
         String url = MySQL.getUrl();
         String user = MySQL.getUser();
         String password = MySQL.getPassword();
-    
+
         return DriverManager.getConnection(url, user, password);
     }
 
     private boolean criarUsuario(String nomeUsuario, String senha) {
-        String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
-        
+        String sqlInsertUsuario = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
+        String sqlInsertHistorico = "INSERT INTO historico (id_usuario, valor) VALUES (?, 0)";
+
         try (Connection conn = connectToDatabase();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-             
-            stmt.setString(1, nomeUsuario);
-            stmt.setString(2, senha);
-            
-            int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0;
+             PreparedStatement stmtUsuario = conn.prepareStatement(sqlInsertUsuario, PreparedStatement.RETURN_GENERATED_KEYS);
+             PreparedStatement stmtHistorico = conn.prepareStatement(sqlInsertHistorico)) {
+
+            // Inserir o usuário na tabela "usuarios"
+            stmtUsuario.setString(1, nomeUsuario);
+            stmtUsuario.setString(2, senha);
+            int rowsAffected = stmtUsuario.executeUpdate();
+
+            if (rowsAffected > 0) {
+                // Obter o ID gerado para o novo usuário
+                try (ResultSet generatedKeys = stmtUsuario.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int idUsuario = generatedKeys.getInt(1);
+
+                        // Inserir registro na tabela "historico"
+                        stmtHistorico.setInt(1, idUsuario);
+                        stmtHistorico.executeUpdate();
+                    }
+                }
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-    
-    
 
     @FXML
     void redirecionarLogin(ActionEvent event) {
@@ -67,10 +81,9 @@ public class ControllerCadastro {
         }
     }
 
-
     @FXML
     private void cadastrar(ActionEvent event) {
-        String nomeUsuario = usuarioInput.getText();  
+        String nomeUsuario = usuarioInput.getText();
         String senha = senhaInput.getText();
 
         boolean sucesso = criarUsuario(nomeUsuario, senha);
@@ -85,5 +98,4 @@ public class ControllerCadastro {
             alert.showAndWait();
         }
     }
-
 }

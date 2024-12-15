@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
@@ -223,6 +224,38 @@ public class ControllerTransferir {
             System.out.println("Destinatário: " + transacao.getDestinatario());
 
             bloco.exibirInformacoesBloco();
+
+            try (Connection conn = connectToDatabase()) {
+                conn.setAutoCommit(false);
+                String query = "SELECT * FROM contas WHERE endereco = ?";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                stmt.setString(1, destinatarioHash);
+                ResultSet rs = stmt.executeQuery();
+            
+                if (rs.next()) {
+                    Integer destinatarioId = rs.getInt("id_usuario");
+            
+                    if (destinatarioId != Sessao.getIdUsuario()) {
+                        sql = "INSERT INTO historico (id_usuario, valor) " +
+                                     "SELECT ?, SUM(saldo) FROM contas WHERE id_usuario = ?";
+                        try (PreparedStatement historicoStmt = conn.prepareStatement(sql)) {
+                            historicoStmt.setInt(1, Sessao.getIdUsuario());
+                            historicoStmt.setInt(2, Sessao.getIdUsuario());
+                            historicoStmt.executeUpdate();
+                        }
+                        sql = "INSERT INTO historico (id_usuario, valor) " +
+                              "SELECT ?, SUM(saldo) FROM contas WHERE id_usuario = ?";
+                        try (PreparedStatement historicoStmt2 = conn.prepareStatement(sql)) {
+                            historicoStmt2.setInt(1, destinatarioId);
+                            historicoStmt2.setInt(2, destinatarioId);
+                            historicoStmt2.executeUpdate();
+                            conn.commit();
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
             try {
                 Parent novaTela = FXMLLoader.load(getClass().getResource("carteira.fxml"));

@@ -42,6 +42,7 @@ public class ControllerGerarEndereco {
         String sqlVerificaUsuario = "SELECT COUNT(*) FROM contas";
         String sqlInserirConta = "INSERT INTO contas(endereco, id_usuario, saldo) VALUES (?, ?, ?)";
         String sqlInserirBlocoGenese = "INSERT INTO blockchain(hash_bloco_anterior, hash_bloco, remetente, destinatario, valor) VALUES(?, ?, ?, ?, ?)";
+        String sqlInserirHistorico = "INSERT INTO historico(id_usuario, valor) VALUES(?, ?)";
 
         try (Connection conn = connectToDatabase();
              PreparedStatement stmtVerificaUsuario = conn.prepareStatement(sqlVerificaUsuario)) {
@@ -65,7 +66,7 @@ public class ControllerGerarEndereco {
                 stmtConta.executeUpdate();
             }
 
-            if(saldoInicial == IceCoin.getQuantidade()) {
+            if (saldoInicial == IceCoin.getQuantidade()) {
                 try (PreparedStatement stmtBloco = conn.prepareStatement(sqlInserirBlocoGenese)) {
                     stmtBloco.setString(1, "0");
                     stmtBloco.setString(2, "0");
@@ -74,6 +75,13 @@ public class ControllerGerarEndereco {
                     stmtBloco.setDouble(5, saldoInicial);
     
                     stmtBloco.executeUpdate();
+                }
+
+                try (PreparedStatement stmtHistorico = conn.prepareStatement(sqlInserirHistorico)) {
+                    stmtHistorico.setInt(1, Sessao.getIdUsuario());
+                    stmtHistorico.setDouble(2, IceCoin.getQuantidade());
+
+                    stmtHistorico.executeUpdate();
                 }
             }
 
@@ -107,5 +115,4 @@ public class ControllerGerarEndereco {
             e.printStackTrace();
         }
     }
-
 }
