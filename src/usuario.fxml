@@ -59,7 +59,7 @@
          </font>
       </Text>
       <Button fx:id="sairUsuario" layoutX="227.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#redirecionarLogin" prefHeight="42.0" prefWidth="186.0" style="-fx-background-color: #2c5670;" text="SAIR" textFill="#e0eae4" />
-      <Label fx:id="nome1" layoutX="321.0" layoutY="263.0" prefHeight="32.0" prefWidth="161.0" style="-fx-text-fill: black;" textAlignment="CENTER">
+      <Label fx:id="nome1" layoutX="240.0" layoutY="258.0" prefHeight="32.0" prefWidth="161.0" style="-fx-text-fill: black;" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,10 +39,34 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="120.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veja a seguir o seu relatório:">
+      <Text fill="WHITE" layoutX="153.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veja a seguir o seu relatório:">
          <font>
-            <Font name="System Bold" size="30.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Text>
+      <ScrollPane layoutX="21.0" layoutY="126.0" prefHeight="267.0" prefWidth="598.0">
+         <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="594.0" style="-fx-background-color: black;">
+               <children>
+                  <BarChart fx:id="grafico" layoutY="14.0" prefHeight="220.0" prefWidth="569.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" style="-fx-text-fill: #007bff; -fx-font-size: 14px;" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="System Bold" size="12.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" style="-fx-text-fill: #007bff; -fx-font-size: 14px;" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="System Bold" size="12.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
